@@ -15,18 +15,27 @@ extension Character {
         id: "1",
         name: "Mario",
         order: 1,
+        world: "Super Mario World",
         mainImage: Image(._1MarioMain),
         thumbnailImage: Image(._1MarioThumb),
-        world: "Super Mario World",
-        levelImage: Image(.levelMarioRainbowCruise)
+        levelImage: Image(.levelMarioRainbowCruise),
+        skinImages: [],
+        movesImage: Image(._1MarioMoves),
+        isDLC: false,
+        priceCents: nil
     )
+    
     static let dk = Character(
         id: "2",
         name: "Donkey Kong",
         order: 2,
+        world: "Donkey Kong",
         mainImage: Image(._2DkMain),
         thumbnailImage: Image(._2DkThumb),
-        world: "Donkey Kong",
-        levelImage: Image(.levelDkKongojungle)
+        levelImage: Image(.levelDkKongojungle),
+        skinImages: [],
+        movesImage: Image(._2DkMoves), 
+        isDLC: false,
+        priceCents: nil
     )
 }

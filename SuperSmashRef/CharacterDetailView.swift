@@ -9,35 +9,63 @@ import SwiftUI
 
 struct CharacterDetailView: View {
     let character: Character
-    @State private var isShowingFullScreenLevel: Bool = false
+    @State private var isShowingLevelImage = false
+    @State private var isShowingMovesImage = false
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                imageAndNameView()
+        GeometryReader { geometry in
+            let isLandscape = geometry.size.width > geometry.size.height
+
+            if isLandscape {
+                HStack(alignment: .top, spacing: 24) {
+                    imageAndNameView()
+                        .frame(width: geometry.size.width * 0.45)
+
+                    ScrollView {
+                        mainRows()
+                    }
                     .frame(maxWidth: .infinity)
-
-                worldView()
-                    .padding()
-
-                levelView()
-                    .padding()
-
-                if let priceCents = character.priceCents {
-                    dlcView(price: priceCents)
-                        .padding()
                 }
+            } else {
+                ScrollView {
+                    VStack(spacing: 24) {
+                        imageAndNameView()
+                            .frame(maxWidth: .infinity)
 
-                if character.skinImages.count > 0 {
-                    skinsView()
-                        .padding()
+                        mainRows()
+                    }
                 }
-
-                Spacer()
+                .ignoresSafeArea(edges: .top)
             }
         }
-        .ignoresSafeArea(edges: .top)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $isShowingLevelImage) {
+            FullScreenImageView(image: character.levelImage)
+        }
+        .sheet(isPresented: $isShowingMovesImage) {
+            FullScreenImageView(image: character.movesImage)
+        }
+    }
+
+    func mainRows() -> some View {
+        VStack {
+            worldView()
+
+            levelView()
+
+            movesView()
+
+            if let priceCents = character.priceCents {
+                dlcView(price: priceCents)
+            }
+
+            if character.skinImages.count > 0 {
+                skinsView()
+            }
+
+            Spacer()
+        }
+        .padding(.horizontal)
     }
 
     func imageAndNameView() -> some View {
@@ -55,11 +83,11 @@ struct CharacterDetailView: View {
                     )
                 )
 
-            Text(character.name)
-                .appFont(style: .largeTitle)
+            Text("\(character.name) - \(Int(character.order))")
+                .font(.custom("Avenir-Black", fixedSize: 60))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom)
+                .padding()
         }
         .frame(maxWidth: .infinity)
     }
@@ -89,21 +117,38 @@ struct CharacterDetailView: View {
 
             character.levelImage
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
+                .aspectRatio(1.7, contentMode: .fit)
+                .frame(height: 80)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .onTapGesture {
-                    isShowingFullScreenLevel = true
+                    isShowingLevelImage = true
                 }
         }
         .padding(24)
         .background(Color(.systemGray6))
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .sheet(isPresented: $isShowingFullScreenLevel) {
-            FullScreenImageView(image: character.levelImage)
-        }
     }
 
+    func movesView() -> some View {
+        HStack {
+            Text("Moves")
+                .appFont(style: .title2, weight: .bold)
+
+            Spacer()
+
+            character.movesImage
+                .resizable()
+                .aspectRatio(1.7, contentMode: .fit)
+                .frame(height: 80)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .onTapGesture {
+                    isShowingMovesImage = true
+                }
+        }
+        .padding(24)
+        .background(Color(.systemGray6))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
 
     func dlcView(price: Int) -> some View {
         VStack(alignment: .leading, spacing: 12) {
