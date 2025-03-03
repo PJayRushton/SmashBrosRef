@@ -9,51 +9,101 @@ import SwiftUI
 import SwiftData
 
 struct AllCharactersView: View {
-
-    let characterController = CharacterController.shared
     @State private var selectedCharacter = Character.mario
     @State private var searchText = ""
-
-    private var imageSpacing: CGFloat {
-        return 2
-    }
-    private var filteredCharacters: [Character] {
+    @State private var selectedCharacterForNavigation: Character?
+    
+    private var filteredResults: [Character] {
         if searchText.isEmpty {
-            return characterController.characters
+            return []
         }
-        return characterController.characters.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        return Character.all.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
     }
-
-    let columns = [
-        GridItem(.flexible(), spacing: 2),
-        GridItem(.flexible(), spacing: 2)
-    ]
 
     var body: some View {
         NavigationSplitView {
-            ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: columns, spacing: imageSpacing) {
-                    ForEach(filteredCharacters) { character in
-                        NavigationLink {
-                            CharacterDetailView(character: character)
-                        } label: {
-                            character.thumbnailImage
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: .infinity)
-                        }
-                    }
+            List {
+                if searchText.isEmpty {
+                    baseSection
+                    unlockableSection
+                    dlcSection
+                } else {
+                    searchResultsSection
                 }
-                .padding(imageSpacing)
             }
-            .background(Color(.systemBackground))
             .navigationTitle("Characters")
             .searchable(text: $searchText)
+            .navigationDestination(for: Character.self) { character in
+                CharacterDetailView(character: character)
+            }
         } detail: {
             CharacterDetailView(character: selectedCharacter)
         }
     }
-
+    
+    private var baseSection: some View {
+        Section {
+            Text("Base Characters")
+                .font(.headline)
+                .foregroundColor(.secondary)
+            
+            ForEach(Character.preUnlocked) { character in
+                CharacterRowView(character: character)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedCharacterForNavigation = character
+                    }
+            }
+        }
+    }
+    
+    private var unlockableSection: some View {
+        Section {
+            Text("Unlockable Characters")
+                .font(.headline)
+                .foregroundColor(.secondary)
+            
+            ForEach(Character.unlockable) { character in
+                CharacterRowView(character: character)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedCharacterForNavigation = character
+                    }
+            }
+        }
+    }
+    
+    private var dlcSection: some View {
+        Section {
+            Text("DLC Characters")
+                .font(.headline)
+                .foregroundColor(.secondary)
+            
+            ForEach(Character.dlc) { character in
+                CharacterRowView(character: character)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedCharacterForNavigation = character
+                    }
+            }
+        }
+    }
+    
+    private var searchResultsSection: some View {
+        Section {
+            Text("Search Results")
+                .font(.headline)
+                .foregroundColor(.secondary)
+            
+            ForEach(filteredResults) { character in
+                CharacterRowView(character: character)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedCharacterForNavigation = character
+                    }
+            }
+        }
+    }
 }
 
 #Preview {
