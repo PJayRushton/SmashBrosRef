@@ -14,7 +14,7 @@ class CharacterController {
     var characters: [Character]
 
     init() {
-        characters = Character.all
+        characters = Character.base
     }
 
 }

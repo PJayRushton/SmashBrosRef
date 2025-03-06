@@ -1,0 +1,395 @@
+{
+  "Mario World": {
+    "stages": [
+      "Princess Peach’s Castle",
+      "Mushroom Kingdom",
+      "Mushroom Kingdom II",
+      "Mushroomy Kingdom",
+      "Delfino Plaza",
+      "Luigi’s Mansion",
+      "Figure-8 Circuit",
+      "Mario Bros.",
+      "3D Land",
+      "Golden Plains",
+      "Paper Mario",
+      "Mario Galaxy",
+      "Rainbow Cruise",
+      "Mushroom Kingdom U",
+      "Mario Circuit",
+      "Super Mario Maker"
+    ],
+    "characters": [
+      "Mario",
+      "Luigi",
+      "Peach",
+      "Daisy",
+      "Bowser",
+      "Dr. Mario",
+      "Rosalina & Luma",
+      "Bowser Jr."
+    ]
+  },
+  "Donkey Kong World": {
+    "stages": [
+      "Kongo Jungle",
+      "Kongo Falls",
+      "Jungle Japes",
+      "75m",
+      "Rumble Falls"
+    ],
+    "characters": [
+      "Donkey Kong",
+      "Diddy Kong",
+      "King K. Rool"
+    ]
+  },
+  "The Legend of Zelda World": {
+    "stages": [
+      "Hyrule Castle",
+      "Great Bay",
+      "Temple",
+      "Bridge of Eldin",
+      "Pirate Ship",
+      "Gerudo Valley",
+      "Spirit Train",
+      "Skyloft"
+    ],
+    "characters": [
+      "Link",
+      "Young Link",
+      "Toon Link",
+      "Zelda",
+      "Sheik",
+      "Ganondorf"
+    ]
+  },
+  "Metroid World": {
+    "stages": [
+      "Brinstar",
+      "Brinstar Depths",
+      "Norfair",
+      "Frigate Orpheon"
+    ],
+    "characters": [
+      "Samus",
+      "Dark Samus",
+      "Zero Suit Samus",
+      "Ridley"
+    ]
+  },
+  "Yoshi World": {
+    "stages": [
+      "Super Happy Tree",
+      "Yoshi’s Island (Melee)",
+      "Yoshi’s Story",
+      "Yoshi’s Island (Brawl)"
+    ],
+    "characters": [
+      "Yoshi"
+    ]
+  },
+  "Kirby World": {
+    "stages": [
+      "Dream Land",
+      "Green Greens",
+      "Fountain of Dreams",
+      "Halberd",
+      "Dream Land GB"
+    ],
+    "characters": [
+      "Kirby",
+      "Meta Knight",
+      "King Dedede"
+    ]
+  },
+  "Star Fox World": {
+    "stages": [
+      "Corneria",
+      "Venom",
+      "Lylat Cruise"
+    ],
+    "characters": [
+      "Fox",
+      "Falco",
+      "Wolf"
+    ]
+  },
+  "Pokémon World": {
+    "stages": [
+      "Saffron City",
+      "Pokémon Stadium",
+      "Poké Floats",
+      "Pokémon Stadium 2",
+      "Spear Pillar",
+      "Unova Pokémon League",
+      "Prism Tower",
+      "Kalos Pokémon League"
+    ],
+    "characters": [
+      "Pikachu",
+      "Pichu",
+      "Jigglypuff",
+      "Mewtwo",
+      "Pokémon Trainer (Squirtle, Ivysaur, Charizard)",
+      "Lucario",
+      "Greninja",
+      "Incineroar"
+    ]
+  },
+  "F-Zero World": {
+    "stages": [
+      "Mute City SNES",
+      "Big Blue",
+      "Port Town Aero Dive"
+    ],
+    "characters": [
+      "Captain Falcon"
+    ]
+  },
+  "EarthBound/Mother World": {
+    "stages": [
+      "Onett",
+      "Fourside",
+      "New Pork City",
+      "Magicant"
+    ],
+    "characters": [
+      "Ness",
+      "Lucas"
+    ]
+  },
+  "Fire Emblem World": {
+    "stages": [
+      "Castle Siege",
+      "Arena Ferox",
+      "Coliseum",
+      "Garreg Mach Monastery"
+    ],
+    "characters": [
+      "Marth",
+      "Lucina",
+      "Roy",
+      "Chrom",
+      "Ike",
+      "Robin",
+      "Corrin",
+      "Byleth"
+    ]
+  },
+  "Game & Watch World": {
+    "stages": [
+      "Flat Zone X"
+    ],
+    "characters": [
+      "Mr. Game & Watch"
+    ]
+  },
+  "Kid Icarus World": {
+    "stages": [
+      "Skyworld",
+      "Reset Bomb Forest",
+      "Palutena’s Temple"
+    ],
+    "characters": [
+      "Pit",
+      "Dark Pit",
+      "Palutena"
+    ]
+  },
+  "Wario World": {
+    "stages": [
+      "WarioWare, Inc.",
+      "Gamer"
+    ],
+    "characters": [
+      "Wario"
+    ]
+  },
+  "Pikmin World": {
+    "stages": [
+      "Distant Planet",
+      "Garden of Morning"
+    ],
+    "characters": [
+      "Olimar"
+    ]
+  },
+  "Animal Crossing World": {
+    "stages": [
+      "Smashville",
+      "Town and City",
+      "Tortimer Island"
+    ],
+    "characters": [
+      "Villager",
+      "Isabelle"
+    ]
+  },
+  "Wii Fit World": {
+    "stages": [
+      "Wii Fit Studio"
+    ],
+    "characters": [
+      "Wii Fit Trainer"
+    ]
+  },
+  "Punch-Out!! World": {
+    "stages": [
+      "Boxing Ring"
+    ],
+    "characters": [
+      "Little Mac"
+    ]
+  },
+  "Xenoblade Chronicles World": {
+    "stages": [
+      "Gaur Plain",
+      "Cloud Sea of Alrest"
+    ],
+    "characters": [
+      "Shulk",
+      "Pyra/Mythra"
+    ]
+  },
+  "Splatoon World": {
+    "stages": [
+      "Moray Towers"
+    ],
+    "characters": [
+      "Inkling"
+    ]
+  },
+  "Castlevania World": {
+    "stages": [
+      "Dracula’s Castle"
+    ],
+    "characters": [
+      "Simon",
+      "Richter"
+    ]
+  },
+  "Persona World": {
+    "stages": [
+      "Mementos"
+    ],
+    "characters": [
+      "Joker"
+    ]
+  },
+  "Dragon Quest World": {
+    "stages": [
+      "Yggdrasil’s Altar"
+    ],
+    "characters": [
+      "Hero"
+    ]
+  },
+  "Banjo-Kazooie World": {
+    "stages": [
+      "Spiral Mountain"
+    ],
+    "characters": [
+      "Banjo & Kazooie"
+    ]
+  },
+  "Fatal Fury/King of Fighters World": {
+    "stages": [
+      "King of Fighters Stadium"
+    ],
+    "characters": [
+      "Terry"
+    ]
+  },
+  "ARMS World": {
+    "stages": [
+      "Spring Stadium"
+    ],
+    "characters": [
+      "Min Min"
+    ]
+  },
+  "Minecraft World": {
+    "stages": [
+      "Minecraft World"
+    ],
+    "characters": [
+      "Steve"
+    ]
+  },
+  "Final Fantasy World": {
+    "stages": [
+      "Midgar",
+      "Northern Cave"
+    ],
+    "characters": [
+      "Cloud",
+      "Sephiroth"
+    ]
+  },
+  "Bayonetta World": {
+    "stages": [
+      "Umbra Clock Tower"
+    ],
+    "characters": [
+      "Bayonetta"
+    ]
+  },
+  "Metal Gear World": {
+    "stages": [
+      "Shadow Moses Island"
+    ],
+    "characters": [
+      "Snake"
+    ]
+  },
+  "Sonic the Hedgehog World": {
+    "stages": [
+      "Green Hill Zone",
+      "Windy Hill Zone"
+    ],
+    "characters": [
+      "Sonic"
+    ]
+  },
+  "Mega Man World": {
+    "stages": [
+      "Wily Castle"
+    ],
+    "characters": [
+      "Mega Man"
+    ]
+  },
+  "Pac-Man World": {
+    "stages": [
+      "Pac-Land"
+    ],
+    "characters": [
+      "Pac-Man"
+    ]
+  },
+  "Street Fighter World": {
+    "stages": [
+      "Suzaku Castle"
+    ],
+    "characters": [
+      "Ryu",
+      "Ken"
+    ]
+  },
+  "Tekken World": {
+    "stages": [
+      "Mishima Dojo"
+    ],
+    "characters": [
+      "Kazuya"
+    ]
+  },
+  "Kingdom Hearts World": {
+    "stages": [
+      "Hollow Bastion"
+    ],
+    "characters": [
+      "Sora"
+    ]
+  }
+}

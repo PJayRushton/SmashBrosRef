@@ -12,19 +12,10 @@ struct CharacterRowView: View {
     let character: Character
 
     var body: some View {
-        HStack {
-            character.thumbnailImage
-                .resizable()
-                .scaledToFit()
-                .frame(height: 50)
-                .cornerRadius(8)
-
-            Text(character.name.uppercased())
-                .appFont(style: .body, weight: .medium)
-
-            Spacer()
-        }
-        .padding(.vertical, 8)
+        character.thumbnailImage
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
 }

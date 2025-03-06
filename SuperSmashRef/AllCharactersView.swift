@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct AllCharactersView: View {
+
     @State private var selectedCharacter = Character.mario
     @State private var searchText = ""
-    @State private var selectedCharacterForNavigation: Character?
-    
+
     private var filteredResults: [Character] {
         if searchText.isEmpty {
             return []
@@ -20,92 +20,102 @@ struct AllCharactersView: View {
         return Character.all.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
     }
 
+    private var columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 2),
+        GridItem(.flexible(), spacing: 2)
+    ]
+
     var body: some View {
         NavigationSplitView {
-            List {
-                if searchText.isEmpty {
-                    baseSection
-                    unlockableSection
-                    dlcSection
-                } else {
-                    searchResultsSection
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    if searchText.isEmpty {
+                        baseCharactersSection()
+                    } else {
+                        searchSection()
+                    }
                 }
+                //                .padding(.vertical, 8)
             }
             .navigationTitle("Characters")
             .searchable(text: $searchText)
-            .navigationDestination(for: Character.self) { character in
-                CharacterDetailView(character: character)
-            }
         } detail: {
             CharacterDetailView(character: selectedCharacter)
         }
     }
-    
-    private var baseSection: some View {
-        Section {
+
+    private func baseCharactersSection() -> some View {
+        VStack(alignment: .leading, spacing: 8) {
             Text("Base Characters")
                 .font(.headline)
                 .foregroundColor(.secondary)
-            
-            ForEach(Character.preUnlocked) { character in
-                CharacterRowView(character: character)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        selectedCharacterForNavigation = character
-                    }
+                .padding(.horizontal)
+
+            LazyVGrid(columns: columns, spacing: 2) {
+                ForEach(Character.base) { character in
+                    CharacterRowView(character: character)
+                        .background(Color.red.opacity(0.3))
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedCharacter = character
+                        }
+                }
             }
         }
     }
-    
-    private var unlockableSection: some View {
-        Section {
-            Text("Unlockable Characters")
-                .font(.headline)
-                .foregroundColor(.secondary)
-            
-            ForEach(Character.unlockable) { character in
-                CharacterRowView(character: character)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        selectedCharacterForNavigation = character
-                    }
-            }
-        }
-    }
-    
-    private var dlcSection: some View {
-        Section {
-            Text("DLC Characters")
-                .font(.headline)
-                .foregroundColor(.secondary)
-            
-            ForEach(Character.dlc) { character in
-                CharacterRowView(character: character)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        selectedCharacterForNavigation = character
-                    }
-            }
-        }
-    }
-    
-    private var searchResultsSection: some View {
-        Section {
+
+    private func searchSection() -> some View {
+        VStack(alignment: .leading, spacing: 8) {
             Text("Search Results")
                 .font(.headline)
                 .foregroundColor(.secondary)
-            
-            ForEach(filteredResults) { character in
-                CharacterRowView(character: character)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        selectedCharacterForNavigation = character
-                    }
+                .padding(.horizontal)
+
+            LazyVGrid(columns: columns, spacing: 0) {
+                ForEach(filteredResults) { character in
+                    CharacterRowView(character: character)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedCharacter = character
+                        }
+                }
             }
+            .padding(.horizontal)
         }
     }
-}
 
+    /*
+     private var unlockableSection: some View {
+     Section(header: Text("Unlockable Characters")
+     .font(.headline)
+     .foregroundColor(.secondary)
+     ) {
+     ForEach(Character.unlockable) { character in
+     CharacterRowView(character: character)
+     .contentShape(Rectangle())
+     .onTapGesture {
+     selectedCharacter = character
+     }
+     }
+     }
+     }
+
+     private var dlcSection: some View {
+     Section(header: Text("DLC Characters")
+     .font(.headline)
+     .foregroundColor(.secondary)
+     ) {
+     ForEach(Character.dlc) { character in
+     CharacterRowView(character: character)
+     .contentShape(Rectangle())
+     .onTapGesture {
+     selectedCharacter = character
+     }
+     }
+     }
+     }
+     */
+}
 #Preview {
     AllCharactersView()
 }

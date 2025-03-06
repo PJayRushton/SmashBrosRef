@@ -39,9 +39,9 @@ struct CharacterDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $isShowingLevelImage) {
-            FullScreenImageView(image: character.levelImage)
-        }
+//        .sheet(isPresented: $isShowingLevelImage) {
+//            FullScreenImageView(image: character.levelImage)
+//        }
         .sheet(isPresented: $isShowingMovesImage) {
             FullScreenImageView(image: character.movesImage)
         }
@@ -51,7 +51,7 @@ struct CharacterDetailView: View {
         VStack {
             worldView()
 
-            levelView()
+//            levelView()
 
             movesView()
 
@@ -74,7 +74,7 @@ struct CharacterDetailView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity)
-                .background(Color.black)
+                .background(Color(.systemBackground))
                 .overlay(
                     LinearGradient(
                         gradient: Gradient(colors: [.clear, .clear, .black.opacity(0.5)]),
@@ -99,7 +99,7 @@ struct CharacterDetailView: View {
 
             Spacer()
 
-            Text(character.world)
+            Text(character.world.name)
                 .appFont(style: .title3)
                 .foregroundStyle(.secondary)
         }
@@ -108,26 +108,26 @@ struct CharacterDetailView: View {
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    func levelView() -> some View {
-        HStack {
-            Text("Level")
-                .appFont(style: .title2, weight: .bold)
-
-            Spacer()
-
-            character.levelImage
-                .resizable()
-                .aspectRatio(1.7, contentMode: .fit)
-                .frame(height: 80)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .onTapGesture {
-                    isShowingLevelImage = true
-                }
-        }
-        .padding(24)
-        .background(Color(.systemGray6))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-    }
+//    func levelView() -> some View {
+//        HStack {
+//            Text("Level")
+//                .appFont(style: .title2, weight: .bold)
+//
+//            Spacer()
+//
+//            character.levelImage
+//                .resizable()
+//                .aspectRatio(1.7, contentMode: .fit)
+//                .frame(height: 80)
+//                .clipShape(RoundedRectangle(cornerRadius: 12))
+//                .onTapGesture {
+//                    isShowingLevelImage = true
+//                }
+//        }
+//        .padding(24)
+//        .background(Color(.systemGray6))
+//        .clipShape(RoundedRectangle(cornerRadius: 16))
+//    }
 
     func movesView() -> some View {
         HStack {

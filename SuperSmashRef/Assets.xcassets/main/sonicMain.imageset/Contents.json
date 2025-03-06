@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "sonicMain.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

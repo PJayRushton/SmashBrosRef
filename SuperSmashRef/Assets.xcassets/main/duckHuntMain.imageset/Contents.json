@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "duckHuntMain.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

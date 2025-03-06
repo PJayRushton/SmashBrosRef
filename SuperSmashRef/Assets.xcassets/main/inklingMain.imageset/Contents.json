@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "inklingMain.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
