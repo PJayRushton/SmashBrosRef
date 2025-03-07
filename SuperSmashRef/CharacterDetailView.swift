@@ -37,13 +37,9 @@ struct CharacterDetailView: View {
                         mainRows()
                     }
                 }
-//                .ignoresSafeArea(edges: .top)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        //        .sheet(isPresented: $isShowingLevelImage) {
-        //            FullScreenImageView(image: character.levelImage)
-        //        }
         .sheet(isPresented: $isShowingMovesImage) {
             FullScreenImageView(image: character.movesImage)
         }
@@ -56,9 +52,16 @@ struct CharacterDetailView: View {
         VStack {
             summaryView()
 
+            CharacterStatsView(character: character)
+
             worldView()
 
             orderView()
+
+            if let echoId = character.echoCharacterId, let echo = Character.all.first(
+                where: { $0.id == echoId }) {
+                echoView(echo: echo)
+            }
 
             if character.skinImages.count > 0 {
                 skinsView()
@@ -144,8 +147,25 @@ struct CharacterDetailView: View {
         .padding(24)
         .background(Color(.systemGray6))
         .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+
+    func echoView(echo: Character) -> some View {
+        HStack {
+            Text("Echo of:")
+                .appFont(style: .title2, weight: .bold)
+
+            Spacer()
+
+            Text(echo.name)
+                .appFont(style: .title3)
+                .foregroundStyle(.secondary)
+        }
+        .padding(24)
+        .background(Color(.systemGray6))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
 
     }
+
 
     func movesView() -> some View {
         HStack {
@@ -185,7 +205,7 @@ struct CharacterDetailView: View {
 
     func skinsView() -> some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Alternative Skins")
+            Text("Skins")
                 .appFont(style: .title2, weight: .bold)
 
             HStack(spacing: 8) {

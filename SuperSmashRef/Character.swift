@@ -20,6 +20,7 @@ struct Character: Identifiable, Equatable {
     let order: Double
     let world: World
     let summary: String
+    let echoCharacterId: String?
 
     let mainImage: Image
     let thumbnailImage: Image
@@ -41,7 +42,7 @@ struct Character: Identifiable, Equatable {
         }
     }
 
-    init(id: String, name: String, order: Double, world: World, mainImage: Image, thumbnailImage: Image, movesImage: Image, skinImages: [Image], isDLC: Bool = false, priceCents: Int? = nil, stats: Stats, summary: String) {
+    init(id: String, name: String, order: Double, world: World, mainImage: Image, thumbnailImage: Image, movesImage: Image, skinImages: [Image], isDLC: Bool = false, priceCents: Int? = nil, stats: Stats, summary: String, echoCharacterId: String? = nil) {
         self.id = id
         self.name = name
         self.order = order
@@ -54,6 +55,7 @@ struct Character: Identifiable, Equatable {
         self.isDLC = isDLC
         self.priceCents = priceCents
         self.summary = summary
+        self.echoCharacterId = echoCharacterId
     }
 
     func hash(into hasher: inout Hasher) {
@@ -257,7 +259,8 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 5, speed: 4, longRange: 7, recovery: 3, hasCounter: true),
-        summary: "Dark Samus is a corrupted doppelganger of Samus Aran, born from the fusion of Metroid Prime and Phazon energy. This menacing entity combines Samus's combat prowess with the destructive power of Phazon, creating a formidable opponent that threatens the entire galaxy. Unlike the original Samus, Dark Samus shows no restraint or moral compass, acting purely on instinct and the drive to spread Phazon corruption. Her abilities mirror Samus's arsenal but with a dark, corrupted twist that makes them even more deadly. As a being of pure Phazon, she possesses extraordinary regenerative abilities and can survive in the harshest environments."
+        summary: "Dark Samus is a corrupted doppelganger of Samus Aran, born from the fusion of Metroid Prime and Phazon energy. This menacing entity combines Samus's combat prowess with the destructive power of Phazon, creating a formidable opponent that threatens the entire galaxy. Unlike the original Samus, Dark Samus shows no restraint or moral compass, acting purely on instinct and the drive to spread Phazon corruption. Her abilities mirror Samus's arsenal but with a dark, corrupted twist that makes them even more deadly. As a being of pure Phazon, she possesses extraordinary regenerative abilities and can survive in the harshest environments.",
+        echoCharacterId: "samus"
     )
 
     static let yoshi = Character(
@@ -415,7 +418,8 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 3, speed: 4, longRange: 3, recovery: 6, hasCounter: true),
-        summary: "Princess Daisy is the energetic and athletic ruler of Sarasaland, bringing a tomboyish charm to the royal lineage. Unlike her close friend Peach, Daisy is known for her more direct and sporty approach to both leadership and combat. First appearing as the damsel in distress in Super Mario Land, she has since established herself as a fierce competitor in various Mario sports titles and racing events. Her fighting style mirrors some of Peach's techniques but with her own unique flair, emphasizing powerful strikes and athletic prowess. While she may not command the same magical abilities as Peach, Daisy compensates with sheer determination and physical capability, making her a formidable opponent in her own right."
+        summary: "Princess Daisy is the energetic and athletic ruler of Sarasaland, bringing a tomboyish charm to the royal lineage. Unlike her close friend Peach, Daisy is known for her more direct and sporty approach to both leadership and combat. First appearing as the damsel in distress in Super Mario Land, she has since established herself as a fierce competitor in various Mario sports titles and racing events. Her fighting style mirrors some of Peach's techniques but with her own unique flair, emphasizing powerful strikes and athletic prowess. While she may not command the same magical abilities as Peach, Daisy compensates with sheer determination and physical capability, making her a formidable opponent in her own right.",
+        echoCharacterId: "peach"
     )
 
     static let bowser = Character(
@@ -558,7 +562,8 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 4, speed: 6, longRange: 4, recovery: 4, hasCounter: true),
-        summary: "Lucina is a determined warrior princess from a doomed future timeline, who traveled to the past to prevent catastrophe. As the daughter of Chrom and descendant of Marth, she initially disguised herself as the Hero-King to inspire hope in a world ravaged by the fell dragon Grima. Her fighting style mirrors Marth's techniques, but with more consistent power along her blade's length, making her more accessible but equally deadly. Despite carrying the burden of her apocalyptic future, Lucina maintains an unwavering determination to protect those she loves. Her strong sense of justice and dedication to changing fate have earned her a place among the most respected warriors in the Fire Emblem series."
+        summary: "Lucina is a determined warrior princess from a doomed future timeline, who traveled to the past to prevent catastrophe. As the daughter of Chrom and descendant of Marth, she initially disguised herself as the Hero-King to inspire hope in a world ravaged by the fell dragon Grima. Her fighting style mirrors Marth's techniques, but with more consistent power along her blade's length, making her more accessible but equally deadly. Despite carrying the burden of her apocalyptic future, Lucina maintains an unwavering determination to protect those she loves. Her strong sense of justice and dedication to changing fate have earned her a place among the most respected warriors in the Fire Emblem series.",
+        echoCharacterId: "marth"
     )
 
     static let youngLink = Character(
@@ -633,7 +638,8 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 5, speed: 6, longRange: 4, recovery: 3, hasCounter: true),
-        summary: "Chrom is the noble prince of Ylisse and leader of the Shepherds, a militia dedicated to protecting the peace. As a descendant of the Hero-King Marth, he wields the legendary sword Falchion with his own unique style. Unlike his ancestors, Chrom's technique focuses on raw power and decisive strikes, reflecting his straightforward and honest personality. His leadership style emphasizes the bonds between companions, believing that true strength comes from unity. Despite facing personal losses and betrayals, Chrom's unwavering faith in his allies and his determination to create a peaceful future have made him a legendary figure in his own right."
+        summary: "Chrom is the noble prince of Ylisse and leader of the Shepherds, a militia dedicated to protecting the peace. As a descendant of the Hero-King Marth, he wields the legendary sword Falchion with his own unique style. Unlike his ancestors, Chrom's technique focuses on raw power and decisive strikes, reflecting his straightforward and honest personality. His leadership style emphasizes the bonds between companions, believing that true strength comes from unity. Despite facing personal losses and betrayals, Chrom's unwavering faith in his allies and his determination to create a peaceful future have made him a legendary figure in his own right.",
+        echoCharacterId: "roy"
     )
 
     static let mrGameAndWatch = Character(
@@ -693,7 +699,8 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 4, speed: 5, longRange: 5, recovery: 5, hasCounter: true),
-        summary: "Dark Pit, also known as Pittoo, emerged as a flawed clone of Pit from the Mirror of Truth, but quickly developed his own distinct identity. Unlike his counterpart's unwavering loyalty to Palutena, Dark Pit fiercely values his independence and follows his own moral compass. His fighting style mirrors Pit's techniques but with darker energy and slightly different properties, reflecting his more aggressive and direct personality. While initially antagonistic, he has grown to reluctantly cooperate with Pit when greater threats emerge. His Silver Bow possesses different properties from Pit's, and his autonomous nature means he fights for his own reasons rather than at the behest of the gods."
+        summary: "Dark Pit, also known as Pittoo, emerged as a flawed clone of Pit from the Mirror of Truth, but quickly developed his own distinct identity. Unlike his counterpart's unwavering loyalty to Palutena, Dark Pit fiercely values his independence and follows his own moral compass. His fighting style mirrors Pit's techniques but with darker energy and slightly different properties, reflecting his more aggressive and direct personality. While initially antagonistic, he has grown to reluctantly cooperate with Pit when greater threats emerge. His Silver Bow possesses different properties from Pit's, and his autonomous nature means he fights for his own reasons rather than at the behest of the gods.",
+        echoCharacterId: "pit"
     )
 
     static let zeroSuitSamus = Character(
@@ -1211,7 +1218,8 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 6, speed: 4, longRange: 3, recovery: 3, hasCounter: true),
-        summary: "Ken Masters, Ryu's friendly rival and America's greatest fighter, brings a more aggressive interpretation of the Ansatsuken fighting style to the battlefield. While sharing many moves with Ryu, Ken's versions emphasize speed and flashy combinations over pure power. His Shoryuken is particularly deadly, featuring multiple hits and greater kill potential, while his unique step kicks add mobility options. Ken's fighting style reflects his outgoing personality and competitive spirit, focusing on rushing down opponents with quick attacks and devastating combos. Despite their similar origins, Ken's more explosive playstyle clearly distinguishes him from Ryu's measured approach."
+        summary: "Ken Masters, Ryu's friendly rival and America's greatest fighter, brings a more aggressive interpretation of the Ansatsuken fighting style to the battlefield. While sharing many moves with Ryu, Ken's versions emphasize speed and flashy combinations over pure power. His Shoryuken is particularly deadly, featuring multiple hits and greater kill potential, while his unique step kicks add mobility options. Ken's fighting style reflects his outgoing personality and competitive spirit, focusing on rushing down opponents with quick attacks and devastating combos. Despite their similar origins, Ken's more explosive playstyle clearly distinguishes him from Ryu's measured approach.",
+        echoCharacterId: "ryu"
     )
 
     static let cloud = Character(
@@ -1316,7 +1324,8 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 5, speed: 3, longRange: 7, recovery: 3, hasCounter: false),
-        summary: "Richter Belmont, descendant of Simon and protagonist of Rondo of Blood, brings a more refined and agile interpretation of the Belmont fighting style. While sharing Simon's basic moveset, Richter's animations and effects emphasize his more athletic and dramatic nature. His version of the Vampire Killer whip features unique visual effects, while his Holy Water creates blue flames instead of regular fire. Despite being an echo fighter, Richter's personality and style make him feel distinct, representing a more modern era of Castlevania while maintaining the series' core focus on skilled weapon use and positioning. His presence alongside Simon celebrates different eras of Castlevania's evolution."
+        summary: "Richter Belmont, descendant of Simon and protagonist of Rondo of Blood, brings a more refined and agile interpretation of the Belmont fighting style. While sharing Simon's basic moveset, Richter's animations and effects emphasize his more athletic and dramatic nature. His version of the Vampire Killer whip features unique visual effects, while his Holy Water creates blue flames instead of regular fire. Despite being an echo fighter, Richter's personality and style make him feel distinct, representing a more modern era of Castlevania while maintaining the series' core focus on skilled weapon use and positioning. His presence alongside Simon celebrates different eras of Castlevania's evolution.",
+        echoCharacterId: "simon"
     )
 
     static let kingKRool = Character(

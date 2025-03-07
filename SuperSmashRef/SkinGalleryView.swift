@@ -46,5 +46,5 @@ struct SkinGalleryView: View {
 }
 
 #Preview {
-    SkinGalleryView(images: [Image(systemName: "star"), Image(systemName: "moon")])
+    SkinGalleryView(images: Character.kirby.skinImages)
 }
