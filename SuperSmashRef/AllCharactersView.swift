@@ -19,33 +19,45 @@ struct AllCharactersView: View {
         }
         return Character.all.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
     }
-
+    private var isiPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
     private var columns: [GridItem] = [
         GridItem(.flexible(), spacing: 2),
         GridItem(.flexible(), spacing: 2)
     ]
 
     var body: some View {
-        NavigationSplitView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    if searchText.isEmpty {
-                        baseCharactersSection
-
-                        unlockableSection
-
-                        dlcSection
-                    } else {
-                        searchSection()
-                    }
-                }
-                //                .padding(.vertical, 8)
+        if isiPad {
+            NavigationSplitView {
+                characterList
+            } detail: {
+                CharacterDetailView(character: selectedCharacter)
             }
-            .navigationTitle("Characters")
-            .searchable(text: $searchText)
-        } detail: {
-            CharacterDetailView(character: selectedCharacter)
+        } else {
+            NavigationStack {
+                characterList
+            }
+            .tint(Color(.label))
         }
+    }
+
+    private var characterList: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                if searchText.isEmpty {
+                    baseCharactersSection
+
+                    unlockableSection
+
+                    dlcSection
+                } else {
+                    searchSection()
+                }
+            }
+        }
+        .navigationTitle("Characters")
+        .searchable(text: $searchText)
     }
 
     private var baseCharactersSection: some View {
@@ -54,15 +66,23 @@ struct AllCharactersView: View {
                 .font(.headline)
                 .foregroundColor(.secondary)
                 .padding(.horizontal)
+                .padding(.top, 8)
 
             LazyVGrid(columns: columns, spacing: 2) {
                 ForEach(Character.base) { character in
-                    CharacterRowView(character: character)
-                        .background(Color.red.opacity(0.3))
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedCharacter = character
+                    if isiPad {
+                        CharacterRowView(character: character)
+                            .background(Color.red.opacity(0.3))
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                selectedCharacter = character
+                            }
+                    } else {
+                        NavigationLink(destination: CharacterDetailView(character: character)) {
+                            CharacterRowView(character: character)
+                                .background(Color.red.opacity(0.3))
                         }
+                    }
                 }
             }
         }
@@ -73,15 +93,21 @@ struct AllCharactersView: View {
             Text("Search Results")
                 .font(.headline)
                 .foregroundColor(.secondary)
-                .padding(.horizontal)
+                .padding()
 
             LazyVGrid(columns: columns, spacing: 0) {
                 ForEach(filteredResults) { character in
-                    CharacterRowView(character: character)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedCharacter = character
+                    if isiPad {
+                        CharacterRowView(character: character)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                selectedCharacter = character
+                            }
+                    } else {
+                        NavigationLink(destination: CharacterDetailView(character: character)) {
+                            CharacterRowView(character: character)
                         }
+                    }
                 }
             }
             .padding(.horizontal)
@@ -94,14 +120,21 @@ struct AllCharactersView: View {
                 .font(.headline)
                 .foregroundColor(.secondary)
                 .padding(.horizontal)
+                .padding(.top)
 
             LazyVGrid(columns: columns, spacing: 2) {
                 ForEach(Character.unlockable) { character in
-                    CharacterRowView(character: character)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedCharacter = character
+                    if isiPad {
+                        CharacterRowView(character: character)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                selectedCharacter = character
+                            }
+                    } else {
+                        NavigationLink(destination: CharacterDetailView(character: character)) {
+                            CharacterRowView(character: character)
                         }
+                    }
                 }
             }
         }
@@ -112,20 +145,27 @@ struct AllCharactersView: View {
             Text("DLC Characters")
                 .font(.headline)
                 .foregroundColor(.secondary)
-                .padding(.horizontal)
+                .padding()
 
             LazyVGrid(columns: columns, spacing: 2) {
                 ForEach(Character.dlc) { character in
-                    CharacterRowView(character: character)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedCharacter = character
+                    if isiPad {
+                        CharacterRowView(character: character)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                selectedCharacter = character
+                            }
+                    } else {
+                        NavigationLink(destination: CharacterDetailView(character: character)) {
+                            CharacterRowView(character: character)
                         }
+                    }
                 }
             }
         }
     }
 }
+
 #Preview {
     AllCharactersView()
 }

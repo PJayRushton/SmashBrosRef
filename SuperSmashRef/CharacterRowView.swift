@@ -12,23 +12,37 @@ struct CharacterRowView: View {
     let character: Character
 
     var body: some View {
-        ZStack(alignment: .top) {
-            character.thumbnailImage
+        ZStack {
+            character.mainImage
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .scaledToFill()
+                .clipped()
 
-            if character.isDLC {
-                HStack {
-                    Spacer()
+            LinearGradient(
+                colors: [.clear, .clear, .black.opacity(0.5)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            VStack {
+                if character.isDLC {
+                    HStack {
+                        Spacer()
 
-                    Image(systemName: "dollarsign")
-                        .foregroundStyle(Color.green)
-                        .bold()
+                        Image(systemName: "dollarsign")
+                            .foregroundStyle(Color.green)
+                            .bold()
+                    }
+                    .padding(8)
                 }
-                .padding(2)
+
+                Spacer()
+
+                Text(character.name.uppercased())
+                    .foregroundStyle(Color.white)
+                    .appFont(style: .title2, weight: .bold)
             }
         }
+//        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
 }

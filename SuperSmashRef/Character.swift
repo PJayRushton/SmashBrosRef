@@ -30,6 +30,17 @@ struct Character: Identifiable, Equatable {
     let priceCents: Int?
     let stats: Stats
 
+    var orderString: String {
+        // Check if the number has a decimal part
+        if order.truncatingRemainder(dividingBy: 1) == 0 {
+            // It's a whole number, return as integer string
+            return String(Int(order))
+        } else {
+            // It has a decimal, return the integer part followed by epsilon
+            return String(Int(order)) + "ᵋ"
+        }
+    }
+
     init(id: String, name: String, order: Double, world: World, mainImage: Image, thumbnailImage: Image, movesImage: Image, skinImages: [Image], isDLC: Bool = false, priceCents: Int? = nil, stats: Stats, summary: String) {
         self.id = id
         self.name = name
@@ -272,7 +283,15 @@ extension Character {
         mainImage: Image(.kirbyMain),
         thumbnailImage: Image(.kirbyThumb),
         movesImage: Image(.kirbyMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.kirbyMain1),
+            Image(.kirbyMain2),
+            Image(.kirbyMain3),
+            Image(.kirbyMain4),
+            Image(.kirbyMain5),
+            Image(.kirbyMain6),
+            Image(.kirbyMain7)
+        ],
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 3, speed: 4, longRange: 4, recovery: 5, hasCounter: false),
@@ -452,7 +471,15 @@ extension Character {
         mainImage: Image(.zeldaMain),
         thumbnailImage: Image(.zeldaThumb),
         movesImage: Image(.zeldaMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.zeldaMain1),
+            Image(.zeldaMain2),
+            Image(.zeldaMain3),
+            Image(.zeldaMain4),
+            Image(.zeldaMain5),
+            Image(.zeldaMain6),
+            Image(.zeldaMain7)
+        ],
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 4, speed: 4, longRange: 5, recovery: 4, hasCounter: true),
@@ -842,7 +869,15 @@ extension Character {
         mainImage: Image(.kingDededeMain),
         thumbnailImage: Image(.kingDededeThumb),
         movesImage: Image(.kingDededeMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.kingDededeMain1),
+            Image(.kingDededeMain2),
+            Image(.kingDededeMain3),
+            Image(.kingDededeMain4),
+            Image(.kingDededeMain5),
+            Image(.kingDededeMain6),
+            Image(.kingDededeMain7)
+        ],
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 6, speed: 2, longRange: 5, recovery: 5, hasCounter: false),
@@ -1337,7 +1372,15 @@ extension Character {
         mainImage: Image(.piranhaPlantMain),
         thumbnailImage: Image(.piranhaPlantThumb),
         movesImage: Image(.piranhaMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.piranhaPlantMain1),
+            Image(.piranhaPlantMain2),
+            Image(.piranhaPlantMain3),
+            Image(.piranhaPlantMain4),
+            Image(.piranhaPlantMain5),
+            Image(.piranhaPlantMain6),
+            Image(.piranhaPlantMain7)
+        ],
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 5, speed: 3, longRange: 6, recovery: 4, hasCounter: false),
@@ -1352,7 +1395,15 @@ extension Character {
         mainImage: Image(.jokerMain),
         thumbnailImage: Image(.jokerThumb),
         movesImage: Image(.jokerMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.jokerMain1),
+            Image(.jokerMain2),
+            Image(.jokerMain3),
+            Image(.jokerMain4),
+            Image(.jokerMain5),
+            Image(.jokerMain6),
+            Image(.jokerMain7)
+        ],
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 4, speed: 6, longRange: 4, recovery: 5, hasCounter: true),
@@ -1437,13 +1488,20 @@ extension Character {
 
     static let steve = Character(
         id: "steve",
-        name: "Steve/Alex",
+        name: "Steve",
         order: 77,
         world: .minecraft,
         mainImage: Image(.steveMain),
         thumbnailImage: Image(.steveThumb),
         movesImage: Image(.steveMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.steveMain2),
+            Image(.steveMain3),
+            Image(.steveMain4),
+            Image(.steveMain5),
+            Image(.steveMain6),
+            Image(.steveMain7)
+        ],
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 5, speed: 4, longRange: 6, recovery: 5, hasCounter: false),
@@ -1458,7 +1516,15 @@ extension Character {
         mainImage: Image(.sephirothMain),
         thumbnailImage: Image(.sephirothThumb),
         movesImage: Image(.sephirothMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.sephirothMain1),
+            Image(.sephirothMain2),
+            Image(.sephirothMain3),
+            Image(.sephirothMain4),
+            Image(.sephirothMain5),
+            Image(.sephirothMain6),
+            Image(.sephirothMain7),
+        ],
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 6, speed: 5, longRange: 7, recovery: 4, hasCounter: false),

@@ -11,6 +11,7 @@ struct CharacterDetailView: View {
     let character: Character
     @State private var isShowingLevelImage = false
     @State private var isShowingMovesImage = false
+    @State private var isShowingSkinGallery = false
 
     var body: some View {
         GeometryReader { geometry in
@@ -36,15 +37,18 @@ struct CharacterDetailView: View {
                         mainRows()
                     }
                 }
-                .ignoresSafeArea(edges: .top)
+//                .ignoresSafeArea(edges: .top)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-//        .sheet(isPresented: $isShowingLevelImage) {
-//            FullScreenImageView(image: character.levelImage)
-//        }
+        //        .sheet(isPresented: $isShowingLevelImage) {
+        //            FullScreenImageView(image: character.levelImage)
+        //        }
         .sheet(isPresented: $isShowingMovesImage) {
             FullScreenImageView(image: character.movesImage)
+        }
+        .sheet(isPresented: $isShowingSkinGallery) {
+            SkinGalleryView(images: character.skinImages)
         }
     }
 
@@ -54,16 +58,16 @@ struct CharacterDetailView: View {
 
             worldView()
 
-//            levelView()
+            orderView()
+
+            if character.skinImages.count > 0 {
+                skinsView()
+            }
 
             movesView()
 
             if let priceCents = character.priceCents {
                 dlcView(price: priceCents)
-            }
-
-            if character.skinImages.count > 0 {
-                skinsView()
             }
 
             Spacer()
@@ -87,7 +91,7 @@ struct CharacterDetailView: View {
                 )
                 .cornerRadius(16)
 
-            Text("\(character.name) - \(Int(character.order))")
+            Text(character.name)
                 .font(.custom("Avenir-Black", fixedSize: 60))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -126,26 +130,22 @@ struct CharacterDetailView: View {
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-//    func levelView() -> some View {
-//        HStack {
-//            Text("Level")
-//                .appFont(style: .title2, weight: .bold)
-//
-//            Spacer()
-//
-//            character.levelImage
-//                .resizable()
-//                .aspectRatio(1.7, contentMode: .fit)
-//                .frame(height: 80)
-//                .clipShape(RoundedRectangle(cornerRadius: 12))
-//                .onTapGesture {
-//                    isShowingLevelImage = true
-//                }
-//        }
-//        .padding(24)
-//        .background(Color(.systemGray6))
-//        .clipShape(RoundedRectangle(cornerRadius: 16))
-//    }
+    func orderView() -> some View {
+        HStack {
+            Text("Number")
+                .appFont(style: .title2, weight: .bold)
+
+            Spacer()
+
+            Text(character.orderString)
+                .appFont(style: .title3)
+                .foregroundStyle(.secondary)
+        }
+        .padding(24)
+        .background(Color(.systemGray6))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+
+    }
 
     func movesView() -> some View {
         HStack {
@@ -159,19 +159,20 @@ struct CharacterDetailView: View {
                 .aspectRatio(1.7, contentMode: .fit)
                 .frame(height: 80)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-                .onTapGesture {
-                    isShowingMovesImage = true
-                }
         }
         .padding(24)
         .background(Color(.systemGray6))
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        .onTapGesture {
+            isShowingMovesImage = true
+        }
     }
 
     func dlcView(price: Int) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
+        HStack {
             Text("DLC Price")
                 .appFont(style: .title2, weight: .bold)
+
             Text("$\(Double(price) / 100.0, specifier: "%.2f")")
                 .appFont(style: .title3)
                 .foregroundStyle(.secondary)
@@ -187,23 +188,29 @@ struct CharacterDetailView: View {
             Text("Alternative Skins")
                 .appFont(style: .title2, weight: .bold)
 
-            LazyVGrid(columns: [.init(.adaptive(minimum: 150, maximum: 200))], spacing: 20) {
+            HStack(spacing: 8) {
                 ForEach(character.skinImages.indices, id: \.self) { index in
                     character.skinImages[index]
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 150)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .shadow(radius: 5)
+                        .aspectRatio(1, contentMode: .fit)
+                        .frame(maxWidth: .infinity)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                        .onTapGesture {
+                            isShowingSkinGallery = true
+                        }
                 }
             }
         }
+        .padding(24)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.systemGray6))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
 }
 
 #Preview {
     NavigationStack {
-        CharacterDetailView(character: .mario)
+        CharacterDetailView(character: .steve)
     }
 }
