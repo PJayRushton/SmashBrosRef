@@ -69,7 +69,7 @@ struct Character: Identifiable, Equatable {
 extension Character {
 
     static var all: [Character] {
-        base + unlocked + dlc
+        base + unlockable + dlc
     }
     
     // Base characters (the 8 starting characters in Super Smash Bros. Ultimate)
@@ -85,7 +85,7 @@ extension Character {
     ]
 
     // Unlocked characters (non-DLC characters that can be unlocked for free)
-    static let unlocked: [Character] = [
+    static let unlockable: [Character] = [
         darkSamus,      // 04ᵋ
         luigi,          // 09
         ness,           // 10
@@ -117,8 +117,7 @@ extension Character {
         ike,            // 32
         squirtle,       // 33
         ivysaur,        // 34
-        charizard,     // 35
-        pokemonTrainer, // 33
+        charizard,      // 35
         diddyKong,      // 36
         lucas,          // 37
         sonic,          // 38
@@ -161,17 +160,17 @@ extension Character {
     static let dlc: [Character] = [
         piranha,        // 70
         joker,          // 71
-        hero,           // 72
-        banjoKazooie,   // 73
-        terry,          // 74
-        byleth,         // 75
-        minMin,         // 76
+//        hero,           // 72
+//        banjoKazooie,   // 73
+//        terry,          // 74
+//        byleth,         // 75
+//        minMin,         // 76
         steve,          // 77
         sephiroth,      // 78
-        pyra,           // 79
-        mythra,         // 80
-        kazuya,         // 81
-        sora            // 82
+//        pyra,           // 79
+//        mythra,         // 80
+//        kazuya,         // 81
+//        sora            // 82
     ]
 
     // Characters in order from 1 to 82
@@ -197,7 +196,7 @@ extension Character {
         world: .donkeyKong,
         mainImage: Image(.dkMain),
         thumbnailImage: Image(.donkeyKongThumb),
-        movesImage: Image(.dkMoves),
+        movesImage: Image(.donkeyKongMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
@@ -345,8 +344,8 @@ extension Character {
         name: "Captain Falcon",
         order: 11,
         world: .fZero,
-        mainImage: Image(.captainFalconMain),
-        thumbnailImage: Image(.captainFalconThumb),
+        mainImage: Image(.capFalconMain),
+        thumbnailImage: Image(.capFalconThumb),
         movesImage: Image(.captainFalconMoves),
         skinImages: [],
         isDLC: false,
@@ -465,7 +464,7 @@ extension Character {
         name: "Dr. Mario",
         order: 18,
         world: .superMario,
-        mainImage: Image(.drMarioMain),
+        mainImage: Image(.drmarioMain),
         thumbnailImage: Image(.drMarioThumb),
         movesImage: Image(.drMarioMoves),
         skinImages: [],
@@ -615,9 +614,9 @@ extension Character {
         name: "Mr. Game & Watch",
         order: 26,
         world: .gameAndWatch,
-        mainImage: Image(.gameAndWatchMain),
-        thumbnailImage: Image(.gameAndWatchThumb),
-        movesImage: Image(.gameAndWatchMoves),
+        mainImage: Image(.mrGameAndWatchMain),
+        thumbnailImage: Image(.mrGameAndWatchThumb),
+        movesImage: Image(.mrGameWatchMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
@@ -675,7 +674,7 @@ extension Character {
         name: "Zero Suit Samus",
         order: 29,
         world: .metroid,
-        mainImage: Image(.zeroSamusMain),
+        mainImage: Image(.zeroSuitSamusMain),
         thumbnailImage: Image(.zeroSuitSamusThumb),
         movesImage: Image(.zeroSuitSamusMoves),
         skinImages: [],
@@ -735,9 +734,9 @@ extension Character {
         name: "Squirtle",
         order: 33,
         world: .pokemon,
-        mainImage: Image(.squirtleMain),
-        thumbnailImage: Image(.squirtleThumb),
-        movesImage: Image(.squirtleMoves),
+        mainImage: Image(.pokemonTrainerMain),
+        thumbnailImage: Image(.pokemonTrainerThumb),
+        movesImage: Image(.ptSquirtleMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
@@ -750,9 +749,9 @@ extension Character {
         name: "Ivysaur",
         order: 34,
         world: .pokemon,
-        mainImage: Image(.ivysaurMain),
-        thumbnailImage: Image(.ivysaurThumb),
-        movesImage: Image(.ivysaurMoves),
+        mainImage: Image(.pokemonTrainerMain),
+        thumbnailImage: Image(.pokemonTrainerThumb),
+        movesImage: Image(.ptIvysaur),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
@@ -765,16 +764,16 @@ extension Character {
         name: "Charizard",
         order: 35,
         world: .pokemon,
-        mainImage: Image(.charizardMain),
-        thumbnailImage: Image(.charizardThumb),
-        movesImage: Image(.charizardMoves),
+        mainImage: Image(.pokemonTrainerMain),
+        thumbnailImage: Image(.pokemonTrainerThumb),
+        movesImage: Image(.ptCharizard),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 6, speed: 4, longRange: 4, recovery: 5, hasCounter: false),
         summary: "Charizard is the powerful Fire/Flying-type final evolution that serves as the Pokémon Trainer's heavy hitter. This proud dragon-like Pokémon combines raw power with surprising aerial mobility, using its wings to maneuver and its fierce flames to overwhelm opponents. Its Fire Breath can create walls of flame for zone control, while its Flare Blitz represents a high-risk, high-reward offensive option. As the most physically imposing member of the Trainer's team, Charizard excels at securing knockouts with its powerful aerial attacks and flame-enhanced strikes. Despite its intimidating appearance, it maintains a strong bond with its Trainer, showcasing the deep connection between Pokémon and human."
     )
-
+/*
     static let pokemonTrainer = Character(
         id: "pokemonTrainer",
         name: "The Pokémon Trainer",
@@ -789,7 +788,7 @@ extension Character {
         stats: Stats(power: 5, speed: 4, longRange: 5, recovery: 4, hasCounter: false),
         summary: "The Pokémon Trainer represents the heart of the Pokémon series, showcasing the bond between trainer and Pokémon through strategic team management. Commanding Squirtle, Ivysaur, and Charizard, the Trainer must master the art of switching between Pokémon to adapt to any situation. Each Pokémon offers unique strengths: Squirtle's agility, Ivysaur's spacing control, and Charizard's raw power. The Trainer's true skill lies in knowing when to deploy each Pokémon, making them one of the most technically demanding but rewarding characters to master. This fighting style perfectly embodies the strategic depth of Pokémon battles, where adaptation and timing are just as important as raw power."
     )
-
+*/
     static let diddyKong = Character(
         id: "diddyKong",
         name: "Diddy Kong",
@@ -809,7 +808,7 @@ extension Character {
         id: "lucas",
         name: "Lucas",
         order: 37,
-        world: .earthbound,
+        world: .earthBound,
         mainImage: Image(.lucasMain),
         thumbnailImage: Image(.lucasThumb),
         movesImage: Image(.lucasMoves),
@@ -840,9 +839,9 @@ extension Character {
         name: "King Dedede",
         order: 39,
         world: .kirby,
-        mainImage: Image(.dedededMain),
-        thumbnailImage: Image(.dedededThumb),
-        movesImage: Image(.dedededMoves),
+        mainImage: Image(.kingDededeMain),
+        thumbnailImage: Image(.kingDededeThumb),
+        movesImage: Image(.kingDededeMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
@@ -944,10 +943,10 @@ extension Character {
         id: "megaman",
         name: "Mega Man",
         order: 46,
-        world: .megaman,
-        mainImage: Image(.megamanMain),
-        thumbnailImage: Image(.megamanThumb),
-        movesImage: Image(.megamanMoves),
+        world: .megaMan,
+        mainImage: Image(.megaManMain),
+        thumbnailImage: Image(.megaManThumb),
+        movesImage: Image(.megaManMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
@@ -959,10 +958,10 @@ extension Character {
         id: "wiiFitTrainer",
         name: "Wii Fit Trainer",
         order: 47,
-        world: .wiiFit,
-        mainImage: Image(.wiiFitMain),
-        thumbnailImage: Image(.wiiFitThumb),
-        movesImage: Image(.wiiFitMoves),
+        world: .mii,
+        mainImage: Image(.wiiFitTrainerMain),
+        thumbnailImage: Image(.wiiFitTrainerThumb),
+        movesImage: Image(.wiiFitTrainerMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
@@ -1022,7 +1021,7 @@ extension Character {
         world: .mii,
         mainImage: Image(.miiSwordfighterMain),
         thumbnailImage: Image(.miiSwordfighterThumb),
-        movesImage: Image(.miiSwordfighterMoves),
+        movesImage: Image(.miiSwordMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
@@ -1079,15 +1078,15 @@ extension Character {
         id: "pacman",
         name: "PAC-MAN",
         order: 55,
-        world: .namco,
-        mainImage: Image(.pacmanMain),
-        thumbnailImage: Image(.pacmanThumb),
-        movesImage: Image(.pacmanMoves),
+        world: .pacMan,
+        mainImage: Image(.pacManMain),
+        thumbnailImage: Image(.pacManThumb),
+        movesImage: Image(.pacManMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 3, speed: 5, longRange: 6, recovery: 5, hasCounter: false),
-        summary: "PAC-MAN is a character from the Pac-Man series. He is known for his ability to eat dots and avoid enemies."
+        summary: "PAC-MAN, the iconic yellow circle who defined a gaming generation, brings his maze-running heritage into the fighting arena with creative flair. His unique fighting style incorporates elements from classic Namco games, using his Bonus Fruit ability to cycle through various projectiles with different properties. His Power Pellet-inspired moves and ability to lay down hydrants for stage control pay homage to his arcade origins. While maintaining his classic 'wakka wakka' charm, PAC-MAN's modern interpretation includes trampoline launches and fire hydrant mechanics that create unique setups and combo opportunities. His mix of nostalgic references and innovative fighting mechanics makes him one of the most creative and unpredictable fighters in the roster."
     )
 
     static let robin = Character(
@@ -1102,7 +1101,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 5, speed: 3, longRange: 6, recovery: 3, hasCounter: true),
-        summary: "Robin is a male character from the Fire Emblem series. He is the main protagonist of the series."
+        summary: "Robin, the tactician protagonist of Fire Emblem Awakening, brings strategic resource management to combat through their unique tome and sword durability system. As a master of both magic and swordplay, they must carefully manage their limited-use weapons, with each tome and the Levin Sword having a finite number of uses before breaking. Their arsenal includes powerful spells like Thunder, Arcfire, and Nosferatu, while the Bronze Sword provides reliable damage when magical options are depleted. This durability system forces strategic decisions about when to use their most powerful attacks, truly reflecting their role as a tactical genius. Despite their slower movement, Robin's mix of powerful magic and tactical gameplay makes them a unique addition to the Fire Emblem representatives."
     )
 
     static let shulk = Character(
@@ -1117,7 +1116,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 5, speed: 4, longRange: 6, recovery: 4, hasCounter: true),
-        summary: "Shulk is a character from the Xenoblade series. He is the main protagonist of the series."
+        summary: "Shulk, the wielder of the legendary Monado sword, brings the unique Vision system from Xenoblade Chronicles into battle. His defining Monado Arts allow him to temporarily modify his attributes, switching between Speed, Shield, Buster, Jump, and Smash modes to adapt to any situation. Each mode significantly alters his capabilities while imposing certain drawbacks, requiring careful timing and strategic awareness. His Vision counter ability can predict and avoid powerful attacks, reflecting his ability to see the future in his home game. Despite the complexity of managing his Monado Arts, Shulk's exceptional range with the Monado and ability to adapt to any situation make him one of the most versatile fighters when mastered."
     )
 
     static let bowserJr = Character(
@@ -1132,7 +1131,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 4, speed: 4, longRange: 5, recovery: 5, hasCounter: false),
-        summary: "Bowser Jr. is the son of Bowser from the Super Mario series."
+        summary: "Bowser Jr., the mischievous heir to the Koopa throne, fights from within his signature Junior Clown Car, transforming a playful vehicle into a versatile weapon platform. His mechanized approach to combat includes deploying Mechakoopas, firing cannonballs, and using various gadgets built into his vehicle. The Clown Car provides both offensive options with its drill and wrecking ball transformations and defensive capabilities with its wheels and propeller. As the youngest of the Koopa family, Bowser Jr.'s determination to prove himself worthy of his father's legacy is reflected in his resourceful and tricky fighting style. His alternate costumes feature the Koopalings, each bringing their own personality while maintaining the same moveset."
     )
 
     static let duckHunt = Character(
@@ -1147,7 +1146,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 3, speed: 4, longRange: 7, recovery: 4, hasCounter: false),
-        summary: "Duck Hunt is a character from the Duck Hunt series. He is known for his ability to shoot ducks."
+        summary: "Duck Hunt brings the classic light gun game duo to life as a unique tag-team fighter, combining the hunting dog's playful nature with the duck's aerial mobility. Their zoning-heavy gameplay revolves around the invisible gunman who assists them, creating setups with clay pigeons, explosive cans, and trick shots that can be triggered for complex projectile patterns. The dog's mocking laugh from the original game is incorporated into their taunts, maintaining their playful personality while adding modern combat capabilities. Despite appearing simple, their ability to control space with multiple projectiles and create elaborate setups makes them one of the most technically interesting zoning characters in the game."
     )
 
     static let ryu = Character(
@@ -1162,7 +1161,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 6, speed: 4, longRange: 3, recovery: 3, hasCounter: true),
-        summary: "Ryu is a character from the Street Fighter series. He is known for his powerful Hadouken attack."
+        summary: "Ryu, the eternal wandering warrior, brings Street Fighter's precise input mechanics to Smash with his unique two-button combat system. His special moves can be performed with either simple inputs or traditional fighting game motions, with the latter dealing more damage and having different properties. His Fighting Game Mode allows him to always face his opponent, while his Focus Attack provides unique defensive options. As a true martial artist seeking perfection, Ryu's playstyle emphasizes fundamentals and rewards technical execution with more powerful versions of his iconic moves like Hadoken and Shoryuken. His presence represents the bridge between traditional fighting games and Smash's unique platform fighter mechanics."
     )
 
     static let ken = Character(
@@ -1177,7 +1176,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 6, speed: 4, longRange: 3, recovery: 3, hasCounter: true),
-        summary: "Ken is a character from the Street Fighter series. He is known for his powerful Shoryuken attack."
+        summary: "Ken Masters, Ryu's friendly rival and America's greatest fighter, brings a more aggressive interpretation of the Ansatsuken fighting style to the battlefield. While sharing many moves with Ryu, Ken's versions emphasize speed and flashy combinations over pure power. His Shoryuken is particularly deadly, featuring multiple hits and greater kill potential, while his unique step kicks add mobility options. Ken's fighting style reflects his outgoing personality and competitive spirit, focusing on rushing down opponents with quick attacks and devastating combos. Despite their similar origins, Ken's more explosive playstyle clearly distinguishes him from Ryu's measured approach."
     )
 
     static let cloud = Character(
@@ -1192,7 +1191,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 6, speed: 5, longRange: 5, recovery: 3, hasCounter: false),
-        summary: "Cloud is a character from the Final Fantasy series. He is the main protagonist of the series."
+        summary: "Cloud Strife, the iconic protagonist of Final Fantasy VII, brings his massive Buster Sword and unique Limit Break mechanic to the battlefield. His fighting style emphasizes powerful sword swings with exceptional range, while his Limit Gauge fills as he takes or deals damage. Once filled, his special moves transform into dramatically more powerful versions, culminating in his legendary Omnislash. Despite his size, Cloud maintains surprising mobility, though his recovery can be predictable without Limit Breaks available. His presence represents the strong connection between Square Enix and Nintendo, while his dramatic animations and powerful moves capture the essence of Final Fantasy's cinematic combat."
     )
 
     static let corrin = Character(
@@ -1207,7 +1206,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 5, speed: 5, longRange: 5, recovery: 4, hasCounter: true),
-        summary: "Corrin is a character from the Fire Emblem series. He is the main protagonist of the series."
+        summary: "Corrin, the half-dragon protagonist of Fire Emblem Fates, brings unique shapeshifting abilities to combat through their Dragon Fang transformation. Their attacks incorporate partial dragon transformations, using their water-based powers and lance-like appendages to create unique spacing tools. The Dragon Lunge pin mechanic offers both offensive pressure and recovery options, while their counter attack can launch opponents in multiple directions. Despite controversy over their inclusion, Corrin's distinctive fighting style and fluid animations set them apart from other Fire Emblem representatives, truly embodying their dragon heritage in every aspect of their moveset."
     )
 
     static let bayonetta = Character(
@@ -1222,7 +1221,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 4, speed: 5, longRange: 4, recovery: 6, hasCounter: false),
-        summary: "Bayonetta is a character from the Bayonetta series. She is known for her powerful attacks and stylish moves."
+        summary: "Bayonetta, the last survivor of the Umbra Witches, brings her signature Bullet Arts and Witch Time mechanics to create a unique combo-focused fighter. Her ability to chain together aerial combos while firing her gun-heels maintains the stylish action of her home series. Witch Time, activated by perfectly dodging attacks, creates opportunities for devastating punishes, while her Bat Within provides additional defensive options. Her complex movement options and combo potential are balanced by relatively weak individual hits, requiring mastery of her mechanics to maximize damage output. As a character who transcends the boundaries between angels and demons, her provocative personality and fluid combat style make her one of the most distinctive fighters in the roster."
     )
 
     static let inkling = Character(
@@ -1237,7 +1236,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 4, speed: 6, longRange: 5, recovery: 4, hasCounter: false),
-        summary: "Inkling is a character from the Splatoon series. It is known for its ability to change its color and use ink."
+        summary: "Inkling brings Splatoon's unique ink mechanics to Smash, requiring careful management of their ink supply while covering opponents and the stage with colorful splashes. Their attacks become more powerful against inked opponents, while their squid form provides both mobility and ink refill options. The Splattershot, Roller, and Splat Bomb provide various ways to apply ink, creating unique stage control opportunities. Their recovery options include the Super Jump and Splat Roller, though they become more limited without ink. As representatives of Nintendo's newest major franchise, Inklings combine creative weapon designs with strategic resource management to create a truly unique fighting style."
     )
 
     static let ridley = Character(
@@ -1252,7 +1251,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 6, speed: 5, longRange: 4, recovery: 4, hasCounter: false),
-        summary: "Ridley is a character from the Metroid series. He is the main antagonist of the series."
+        summary: "Ridley, the cunning leader of the Space Pirates and Samus's arch-nemesis, finally joins the roster after years of fan requests. His savage fighting style emphasizes his bestial nature, using his tail, claws, and wings to devastating effect. Despite his large size, Ridley maintains surprising mobility both on the ground and in the air, while his Space Pirate Rush and Skewer attacks can lead to brutal damage output. His plasma breath and fireballs provide ranged options, though his large frame makes him vulnerable to combos. As one of gaming's most iconic villains, Ridley's inclusion represents the fulfillment of long-standing fan wishes while staying true to his ruthless character."
     )
 
     static let simon = Character(
@@ -1267,7 +1266,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 5, speed: 3, longRange: 7, recovery: 3, hasCounter: false),
-        summary: "Simon is a character from the Castlevania series. He is the main protagonist of the series."
+        summary: "Simon Belmont, the legendary vampire hunter, brings Castlevania's classic weapon arsenal to create a unique zoning-focused fighter. His iconic Vampire Killer whip gives him the longest standard reach in the game, while his array of sub-weapons like the Cross, Axe, and Holy Water create powerful space control options. Despite his slower movement, Simon's ability to control space with his whip and projectiles makes him a formidable opponent at any range. His recovery options include the Uppercut and Diagonal Cross throw, though they can be predictable. As the original Belmont, Simon's inclusion celebrates Castlevania's rich history while providing a unique playstyle focused on positioning and resource management."
     )
 
     static let richter = Character(
@@ -1282,7 +1281,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 5, speed: 3, longRange: 7, recovery: 3, hasCounter: false),
-        summary: "Richter is a character from the Castlevania series. He is the main protagonist of the series."
+        summary: "Richter Belmont, descendant of Simon and protagonist of Rondo of Blood, brings a more refined and agile interpretation of the Belmont fighting style. While sharing Simon's basic moveset, Richter's animations and effects emphasize his more athletic and dramatic nature. His version of the Vampire Killer whip features unique visual effects, while his Holy Water creates blue flames instead of regular fire. Despite being an echo fighter, Richter's personality and style make him feel distinct, representing a more modern era of Castlevania while maintaining the series' core focus on skilled weapon use and positioning. His presence alongside Simon celebrates different eras of Castlevania's evolution."
     )
 
     static let kingKRool = Character(
@@ -1292,12 +1291,12 @@ extension Character {
         world: .donkeyKong,
         mainImage: Image(.kingKRoolMain),
         thumbnailImage: Image(.kingKRoolThumb),
-        movesImage: Image(.kingKRoolMoves),
+        movesImage: Image(.kingkroolMoves),
         skinImages: [],
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 7, speed: 2, longRange: 6, recovery: 4, hasCounter: true),
-        summary: "King K. Rool is the main antagonist of the Donkey Kong series. He is the king of the Kongs."
+        summary: "King K. Rool is the megalomaniacal ruler of the Kremling Krew and arch-nemesis of the Kong family. This brutish but cunning crocodile king combines his massive strength with surprisingly advanced technology in his endless quest to steal the Kongs' banana hoard. His fighting style emphasizes his tremendous weight and power, using his golden belly armor to counter attacks while deploying his crown as a projectile and his blunderbuss for both offensive and recovery options. Despite his comical appearance and occasional buffoonery, K. Rool is a dangerous opponent whose scientific knowledge and physical might have repeatedly threatened DK Island. His endurance and versatility make him a formidable heavyweight fighter who can control space with projectiles while threatening devastating close-range attacks."
     )
 
     static let isabelle = Character(
@@ -1312,7 +1311,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 3, speed: 5, longRange: 5, recovery: 5, hasCounter: false),
-        summary: "Isabelle is a character from the Animal Crossing series. She is a resident of the series' town."
+        summary: "Isabelle is the ever-cheerful and diligent secretary who helps manage the player's town in Animal Crossing. Her transition from administrative assistant to fighter hasn't diminished her helpful nature, as she adapts her office supplies and civic tools into surprisingly effective weapons. Her fishing rod can be used as both a long-range grab and recovery tool, while her party poppers and Lloid trap create unique zoning opportunities. Despite her small size and gentle demeanor, Isabelle's resourcefulness and determination make her a tricky opponent who can control space and set up clever traps. Her ultimate smash attack even calls upon her beloved town hall to demonstrate her dedication to public service."
     )
 
     static let incineroar = Character(
@@ -1327,7 +1326,7 @@ extension Character {
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 7, speed: 2, longRange: 2, recovery: 3, hasCounter: true),
-        summary: "Incineroar is a character from the Pokémon series. It is the evolved form of Fuecoco."
+        summary: "Incineroar is the heel wrestler-inspired final evolution of Litten, combining Fire and Dark-type attributes with professional wrestling flair. Known as the Heel Pokémon, it revels in the crowd's reaction whether positive or negative, gaining power from its showboating taunts. Its fighting style is built around powerful wrestling moves like its signature Darkest Lariat and Cross Chop, while its Revenge mechanic rewards taking hits before delivering devastating counters. Despite its poor mobility, Incineroar's combination of raw power and theatrical combat makes it a crowd-pleasing powerhouse. Its ability to turn enemy projectiles into power-boosting taunts reflects its heel wrestler personality, thriving on both cheers and jeers."
     )
 
     static let piranha = Character(
@@ -1335,14 +1334,14 @@ extension Character {
         name: "Piranha Plant",
         order: 70,
         world: .superMario,
-        mainImage: Image(.piranhaMain),
-        thumbnailImage: Image(.piranhaThumb),
+        mainImage: Image(.piranhaPlantMain),
+        thumbnailImage: Image(.piranhaPlantThumb),
         movesImage: Image(.piranhaMoves),
         skinImages: [],
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 5, speed: 3, longRange: 6, recovery: 4, hasCounter: false),
-        summary: "Piranha Plant is a character from the Super Mario series. It is known for its ability to attack players."
+        summary: "Piranha Plant represents one of the most iconic enemies from the Mario series, transformed from simple obstacle to formidable fighter. This carnivorous plant demonstrates surprising mobility and range, using its flexible stem to stretch and strike from unexpected angles. Its moveset creatively adapts its natural abilities, from its potent bite attacks to spitting poisonous clouds and shooting spiky balls. The Long-Stem Strike allows it to patrol multiple elevations, while Ptooie creates unique aerial pressure opportunities. Despite being rooted in a pot, Piranha Plant's excellent recovery and mix of close and long-range options make it an unorthodox but effective fighter that proves even common enemies can become stars."
     )
 
     static let joker = Character(
@@ -1357,9 +1356,9 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 4, speed: 6, longRange: 4, recovery: 5, hasCounter: true),
-        summary: "Joker is a character from the Persona series. He is known for his ability to manipulate people's minds."
+        summary: "Joker, the code name of Ren Amamiya, is the charismatic leader of the Phantom Thieves who fights for justice in both the real world and the cognitive realm of the Metaverse. His unique mechanic revolves around his Persona, Arsene, which can be summoned through his Rebellion Gauge to dramatically enhance his abilities. Without Arsene, Joker relies on agile movements, his grappling hook, and his dagger for quick strikes. When Arsene manifests, his moves gain tremendous power and range, reflecting the unleashed potential of his rebellious spirit. His All-Out Attack serves as a devastating finale, capturing the stylish presentation and tactical depth of Persona 5's combat system."
     )
-
+/*
     static let hero = Character(
         id: "hero",
         name: "Hero",
@@ -1372,7 +1371,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 5, speed: 4, longRange: 5, recovery: 4, hasCounter: false),
-        summary: "Hero is a character from the Dragon Quest series. He is the main protagonist of the series."
+        summary: "Hero embodies the legendary protagonists from the Dragon Quest series, bringing the classic JRPG's turn-based combat system into real-time battles. His unique Command Selection menu allows access to a variety of MP-consuming spells and abilities, from healing Heal to the devastating Kamikazee. This randomized selection system creates strategic decisions about resource management and risk-reward scenarios. His sword-based normal attacks provide reliable damage, while critical hits can turn the tide of battle. Despite the inherent randomness in his special moves, Hero's combination of solid swordplay and powerful magic makes him a versatile fighter who can adapt to any situation, true to his RPG origins."
     )
 
     static let banjoKazooie = Character(
@@ -1387,7 +1386,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 5, speed: 4, longRange: 5, recovery: 4, hasCounter: false),
-        summary: "Banjo & Kazooie are characters from the Banjo-Kazooie series. They are known for their ability to play musical instruments."
+        summary: "Banjo & Kazooie are the beloved duo from Rare's classic platforming series, combining Banjo's strength with Kazooie's aerial mobility and projectile attacks. Their movesets faithfully recreate their various abilities from their adventures, including Egg Firing, Wonderwing invincibility, and the Shock Spring Jump. Kazooie can pop out of Banjo's backpack for various attacks, while their Forward Smash references their iconic pack whack. Their recovery options are particularly versatile, using moves like the Breegull Blaster and Wonderwing to approach from multiple angles. Despite being separated from Nintendo for years, their return maintains the charm and humor that made their original games classics."
     )
 
     static let terry = Character(
@@ -1402,7 +1401,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 6, speed: 5, longRange: 3, recovery: 3, hasCounter: false),
-        summary: "Terry is a character from the Fatal Fury series. He is known for his powerful attacks."
+        summary: "Terry Bogard, the Legendary Wolf from Fatal Fury, brings SNK's fighting game mechanics to Smash with his unique command input system. His signature moves like Burning Knuckle and Crack Shoot can be performed with either simple or traditional fighting game inputs, rewarding technical skill with increased power. At high damage percentages, he gains access to his devastating Super Special Moves: Power Geyser and Buster Wolf. His fighting style emphasizes ground control and powerful punishes, with his GO meter mechanic adding strategic depth. Terry's combination of accessibility and technical depth, along with his charismatic personality, makes him a fitting representative of SNK's fighting game legacy."
     )
 
     static let byleth = Character(
@@ -1417,7 +1416,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 6, speed: 3, longRange: 6, recovery: 4, hasCounter: true),
-        summary: "Byleth is a character from the Fire Emblem series. She is the main protagonist of the series."
+        summary: "Byleth, the mysterious professor of the Officers Academy, brings unprecedented weapon variety to their combat style. As the wielder of the Heroes' Relics, they can access the Sword of the Creator, Areadbhar spear, Aymr axe, and Failnaught bow. Each weapon is assigned to different attack directions, creating a unique spacing-based fighting style that rewards positioning and knowledge of each weapon's strengths. Their slower movement is offset by exceptional range and power, while their ability to switch weapons mid-combo creates unique mix-up opportunities. Despite controversy over another Fire Emblem representative, Byleth's unique mechanics set them apart from their sword-wielding predecessors."
     )
 
     static let minMin = Character(
@@ -1432,8 +1431,9 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 4, speed: 4, longRange: 7, recovery: 4, hasCounter: false),
-        summary: "Min Min is a character from the Arms series. She is known for her ability to use various weapons."
+        summary: "Min Min, the ramen-loving fighter from ARMS, revolutionizes Smash's combat with her unique ability to control both arms independently using the A and B buttons. Her extendable ARMS allow for unprecedented range control, while different arm attachments like the Dragon ARM and Megawatt provide strategic options. Her ground-based fighting style emphasizes spacing and reads, as her arms can be curved to catch opponents' movements. While vulnerable to close-range pressure, Min Min's exceptional range and ability to control neutral from a distance make her a unique zoner who truly brings the ARMS fighting style to life."
     )
+*/
 
     static let steve = Character(
         id: "steve",
@@ -1447,7 +1447,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 5, speed: 4, longRange: 6, recovery: 5, hasCounter: false),
-        summary: "Steve is a character from the Minecraft series. He is the main protagonist of the series."
+        summary: "Steve (and his alternate form Alex) brings Minecraft's core mechanics into Smash, creating a uniquely resource-management-based fighter. Their ability to mine materials and craft better tools mid-battle creates a dynamic progression system within each match. Building blocks can create platforms and walls for stage control, while different materials affect tool durability and power. Their unusual movement and attack animations faithfully recreate Minecraft's distinctive style, while their minecart and elytra provide unique mobility options. Despite their seemingly simple appearance, Steve/Alex's complex resource management and stage control abilities make them one of the most technically demanding fighters."
     )
 
     static let sephiroth = Character(
@@ -1462,9 +1462,9 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 6, speed: 5, longRange: 7, recovery: 4, hasCounter: false),
-        summary: "Sephiroth is a character from the Final Fantasy series. He is known for his powerful attacks and ability to summon powerful enemies."
+        summary: "Sephiroth, the legendary One-Winged Angel, brings his imposing presence and devastating sword techniques to the battlefield. His massive Masamune blade gives him unprecedented reach, while his Winged Form activates at high damage percentages, granting additional mobility and power. His moveset incorporates iconic abilities from Final Fantasy VII, including Shadow Flare, Gigaflare, and his signature One-Winged Angel form. Despite being relatively light, his exceptional range and power make him a fearsome opponent who can control space and end stocks early. His dramatic entrance and villainous charisma make him one of the most impactful DLC additions to the roster."
     )
-
+/*
     static let pyra = Character(
         id: "pyra",
         name: "Pyra",
@@ -1477,7 +1477,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 6, speed: 4, longRange: 4, recovery: 3, hasCounter: false),
-        summary: "Pyra is a character from the Xenoblade series. She is the main protagonist of the series."
+        summary: "Pyra is one half of the Aegis duo, representing the power aspect of their shared being. As the Aegis of power, her attacks emphasize raw damage and knockback, with her flame-based abilities creating powerful finishing opportunities. Her slower movement speed is offset by the ability to switch to Mythra for mobility, creating a dynamic tag-team system. Pyra's Prominence Revolt and Flame Nova provide strong vertical kill options, while her Blazing End creates unique edge-guarding opportunities. Her relationship with Rex and her role in Xenoblade Chronicles 2's story is reflected in her powerful but straightforward fighting style."
     )
 
     static let mythra = Character(
@@ -1492,7 +1492,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 4, speed: 7, longRange: 4, recovery: 3, hasCounter: false),
-        summary: "Mythra is a character from the Xenoblade series. She is the main antagonist of the series."
+        summary: "Mythra represents the light aspect of the Aegis, contrasting with Pyra's power through superior speed and combo potential. Her Foresight ability activates when dodging attacks perfectly, creating a slight slowdown effect that rewards precise defensive play. Lightning Buster and Photon Edge allow for rapid multi-hit attacks, while her Chroma Dust creates unique zoning opportunities. The ability to switch between Mythra's speed and Pyra's power creates one of the most versatile characters in the game. Her complex relationship with Pyra and their shared past adds depth to their unique tag-team mechanics."
     )
 
     static let kazuya = Character(
@@ -1507,7 +1507,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 7, speed: 3, longRange: 2, recovery: 4, hasCounter: true),
-        summary: "Kazuya is a character from the Tekken series. He is known for his powerful attacks and ability to summon powerful enemies."
+        summary: "Kazuya Mishima brings Tekken's complex fighting game mechanics to Smash, featuring over 40 unique attacks based on traditional command inputs. His Fighting Game Mode allows for auto-turn around when using command inputs, staying true to Tekken's gameplay style. His Devil Form transformation enhances his already powerful moves while granting flight ability. Kazuya's combo-heavy gameplay emphasizes the Electric Wind God Fist and other signature Mishima-style moves, rewarding technical execution with devastating damage. Despite his limited range, his raw power and complex moveset make him one of the most technically rewarding characters to master."
     )
 
     static let sora = Character(
@@ -1522,6 +1522,7 @@ extension Character {
         isDLC: true,
         priceCents: 599,
         stats: Stats(power: 4, speed: 5, longRange: 4, recovery: 6, hasCounter: false),
-        summary: "Sora is a character from the Kingdom Hearts series. He is the main protagonist of the series."
+        summary: "Sora, the Keyblade wielder from Kingdom Hearts, represents the culmination of the unlikely collaboration between Disney and Square Enix. His fighting style emphasizes aerial combat and magic, with his signature Keyblade providing both melee and magical options. His three-hit combo system recreates Kingdom Hearts' combat, while his magic spells (Fire, Thunder, and Blizzard) can be used in various combinations. Sora's exceptional air mobility and recovery options reflect his experience traversing different worlds, while his counter and aerial combos capture the acrobatic nature of Kingdom Hearts combat. As the final DLC character, his addition represents a fitting conclusion to Smash Ultimate's roster."
     )
+ */
 }

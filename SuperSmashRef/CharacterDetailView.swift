@@ -17,15 +17,16 @@ struct CharacterDetailView: View {
             let isLandscape = geometry.size.width > geometry.size.height
 
             if isLandscape {
-                HStack(alignment: .top, spacing: 24) {
+                HStack(alignment: .top, spacing: 0) {
                     imageAndNameView()
-                        .frame(width: geometry.size.width * 0.45)
+                        .frame(width: geometry.size.width * 0.5)
 
                     ScrollView {
                         mainRows()
                     }
                     .frame(maxWidth: .infinity)
                 }
+                .padding(.leading)
             } else {
                 ScrollView {
                     VStack(spacing: 24) {
@@ -49,6 +50,8 @@ struct CharacterDetailView: View {
 
     func mainRows() -> some View {
         VStack {
+            summaryView()
+
             worldView()
 
 //            levelView()
@@ -82,6 +85,7 @@ struct CharacterDetailView: View {
                         endPoint: .bottom
                     )
                 )
+                .cornerRadius(16)
 
             Text("\(character.name) - \(Int(character.order))")
                 .font(.custom("Avenir-Black", fixedSize: 60))
@@ -90,6 +94,20 @@ struct CharacterDetailView: View {
                 .padding()
         }
         .frame(maxWidth: .infinity)
+    }
+
+    func summaryView() -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Summary")
+                .appFont(style: .title2, weight: .bold)
+
+            Text(character.summary)
+                .appFont(style: .caption)
+        }
+        .padding(24)
+        .frame(maxWidth: .infinity)
+        .background(Color(.systemGray6))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
     func worldView() -> some View {

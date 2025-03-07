@@ -12,10 +12,23 @@ struct CharacterRowView: View {
     let character: Character
 
     var body: some View {
-        character.thumbnailImage
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        ZStack(alignment: .top) {
+            character.thumbnailImage
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+            if character.isDLC {
+                HStack {
+                    Spacer()
+
+                    Image(systemName: "dollarsign")
+                        .foregroundStyle(Color.green)
+                        .bold()
+                }
+                .padding(2)
+            }
+        }
     }
 
 }

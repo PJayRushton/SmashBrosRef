@@ -4,7 +4,7 @@ import SwiftUI
 struct Stage: Hashable {
     let id: String
     let name: String
-    
+
     init(id: String, name: String) {
         self.id = id
         self.name = name
@@ -16,7 +16,7 @@ struct World: Identifiable, Equatable, Hashable {
     let name: String
     let characterIds: [String]
     let stages: [Stage]
-    
+
     init(id: String, name: String, characterIds: [String], stages: [Stage]) {
         self.id = id
         self.name = name
@@ -49,7 +49,7 @@ extension World {
             Stage(id: "superMarioMaker", name: "Super Mario Maker")
         ]
     )
-    
+
     static let donkeyKong = World(
         id: "donkeyKong",
         name: "Donkey Kong World",
@@ -62,7 +62,7 @@ extension World {
             Stage(id: "rumbleFalls", name: "Rumble Falls")
         ]
     )
-    
+
     static let zelda = World(
         id: "zelda",
         name: "The Legend of Zelda World",
@@ -78,7 +78,7 @@ extension World {
             Stage(id: "skyloft", name: "Skyloft")
         ]
     )
-    
+
     static let metroid = World(
         id: "metroid",
         name: "Metroid World",
@@ -90,7 +90,7 @@ extension World {
             Stage(id: "frigateOrpheon", name: "Frigate Orpheon")
         ]
     )
-    
+
     static let yoshi = World(
         id: "yoshi",
         name: "Yoshi's Island World",
@@ -102,7 +102,7 @@ extension World {
             Stage(id: "superHappyTree", name: "Super Happy Tree")
         ]
     )
-    
+
     static let kirby = World(
         id: "kirby",
         name: "Dream Land World",
@@ -115,7 +115,7 @@ extension World {
             Stage(id: "theFountainOfDreams", name: "The Fountain of Dreams")
         ]
     )
-    
+
     static let starFox = World(
         id: "starFox",
         name: "Star Fox World",
@@ -126,7 +126,7 @@ extension World {
             Stage(id: "lylatCruise", name: "Lylat Cruise")
         ]
     )
-    
+
     static let pokemon = World(
         id: "pokemon",
         name: "Pokémon World",
@@ -142,7 +142,7 @@ extension World {
             Stage(id: "pokeFloats", name: "Poké Floats")
         ]
     )
-    
+
     static let fireEmblem = World(
         id: "fireEmblem",
         name: "Fire Emblem World",
@@ -154,7 +154,7 @@ extension World {
             Stage(id: "garregMach", name: "Garreg Mach Monastery")
         ]
     )
-    
+
     // Add the missing worlds
     static let fZero = World(
         id: "fZero",
@@ -166,10 +166,10 @@ extension World {
             Stage(id: "portTownAeroDive", name: "Port Town Aero Dive")
         ]
     )
-    
+
     static let earthBound = World(
         id: "earthBound",
-        name: "EarthBound/Mother World",
+        name: "EarthBound",
         characterIds: ["ness", "lucas"],
         stages: [
             Stage(id: "onett", name: "Onett"),
@@ -178,7 +178,7 @@ extension World {
             Stage(id: "magicant", name: "Magicant")
         ]
     )
-    
+
     static let gameAndWatch = World(
         id: "gameAndWatch",
         name: "Game & Watch World",
@@ -187,7 +187,7 @@ extension World {
             Stage(id: "flatZoneX", name: "Flat Zone X")
         ]
     )
-    
+
     static let kidIcarus = World(
         id: "kidIcarus",
         name: "Kid Icarus World",
@@ -198,7 +198,7 @@ extension World {
             Stage(id: "palutenasTemple", name: "Palutena's Temple")
         ]
     )
-    
+
     static let wario = World(
         id: "wario",
         name: "Wario World",
@@ -208,7 +208,7 @@ extension World {
             Stage(id: "gamer", name: "Gamer")
         ]
     )
-    
+
     static let pikmin = World(
         id: "pikmin",
         name: "Pikmin World",
@@ -218,7 +218,7 @@ extension World {
             Stage(id: "gardenOfMorning", name: "Garden of Morning")
         ]
     )
-    
+
     static let animalCrossing = World(
         id: "animalCrossing",
         name: "Animal Crossing World",
@@ -229,16 +229,7 @@ extension World {
             Stage(id: "tortimerIsland", name: "Tortimer Island")
         ]
     )
-    
-    static let wiiFit = World(
-        id: "wiiFit",
-        name: "Wii Fit World",
-        characterIds: ["wiiFitTrainer"],
-        stages: [
-            Stage(id: "wiiFitStudio", name: "Wii Fit Studio")
-        ]
-    )
-    
+
     static let punchOut = World(
         id: "punchOut",
         name: "Punch-Out!! World",
@@ -247,7 +238,7 @@ extension World {
             Stage(id: "boxingRing", name: "Boxing Ring")
         ]
     )
-    
+
     static let xenoblade = World(
         id: "xenoblade",
         name: "Xenoblade Chronicles World",
@@ -257,7 +248,7 @@ extension World {
             Stage(id: "cloudSeaOfAlrest", name: "Cloud Sea of Alrest")
         ]
     )
-    
+
     static let splatoon = World(
         id: "splatoon",
         name: "Splatoon World",
@@ -266,7 +257,7 @@ extension World {
             Stage(id: "morayTowers", name: "Moray Towers")
         ]
     )
-    
+
     static let castlevania = World(
         id: "castlevania",
         name: "Castlevania World",
@@ -275,7 +266,7 @@ extension World {
             Stage(id: "draculasCastle", name: "Dracula's Castle")
         ]
     )
-    
+
     static let persona = World(
         id: "persona",
         name: "Persona World",
@@ -284,7 +275,7 @@ extension World {
             Stage(id: "mementos", name: "Mementos")
         ]
     )
-    
+
     static let dragonQuest = World(
         id: "dragonQuest",
         name: "Dragon Quest World",
@@ -293,7 +284,7 @@ extension World {
             Stage(id: "yggdrasilsAltar", name: "Yggdrasil's Altar")
         ]
     )
-    
+
     static let banjoKazooie = World(
         id: "banjoKazooie",
         name: "Banjo-Kazooie World",
@@ -302,7 +293,7 @@ extension World {
             Stage(id: "spiralMountain", name: "Spiral Mountain")
         ]
     )
-    
+
     static let fatalFury = World(
         id: "fatalFury",
         name: "Fatal Fury/King of Fighters World",
@@ -311,7 +302,7 @@ extension World {
             Stage(id: "kingOfFightersStadium", name: "King of Fighters Stadium")
         ]
     )
-    
+
     static let arms = World(
         id: "arms",
         name: "ARMS World",
@@ -320,7 +311,7 @@ extension World {
             Stage(id: "springStadium", name: "Spring Stadium")
         ]
     )
-    
+
     static let minecraft = World(
         id: "minecraft",
         name: "Minecraft World",
@@ -329,7 +320,7 @@ extension World {
             Stage(id: "minecraftWorld", name: "Minecraft World")
         ]
     )
-    
+
     static let finalFantasy = World(
         id: "finalFantasy",
         name: "Final Fantasy World",
@@ -339,7 +330,7 @@ extension World {
             Stage(id: "northernCave", name: "Northern Cave")
         ]
     )
-    
+
     static let bayonetta = World(
         id: "bayonetta",
         name: "Bayonetta World",
@@ -348,7 +339,7 @@ extension World {
             Stage(id: "umbraClockTower", name: "Umbra Clock Tower")
         ]
     )
-    
+
     static let metalGear = World(
         id: "metalGear",
         name: "Metal Gear World",
@@ -357,7 +348,7 @@ extension World {
             Stage(id: "shadowMosesIsland", name: "Shadow Moses Island")
         ]
     )
-    
+
     static let sonic = World(
         id: "sonic",
         name: "Sonic the Hedgehog World",
@@ -367,7 +358,7 @@ extension World {
             Stage(id: "windyHillZone", name: "Windy Hill Zone")
         ]
     )
-    
+
     static let megaMan = World(
         id: "megaMan",
         name: "Mega Man World",
@@ -376,7 +367,7 @@ extension World {
             Stage(id: "wilyCastle", name: "Wily Castle")
         ]
     )
-    
+
     static let pacMan = World(
         id: "pacMan",
         name: "Pac-Man World",
@@ -385,7 +376,7 @@ extension World {
             Stage(id: "pacLand", name: "Pac-Land")
         ]
     )
-    
+
     static let streetFighter = World(
         id: "streetFighter",
         name: "Street Fighter World",
@@ -394,7 +385,7 @@ extension World {
             Stage(id: "suzakuCastle", name: "Suzaku Castle")
         ]
     )
-    
+
     static let tekken = World(
         id: "tekken",
         name: "Tekken World",
@@ -403,7 +394,7 @@ extension World {
             Stage(id: "mishimaDojo", name: "Mishima Dojo")
         ]
     )
-    
+
     static let kingdomHearts = World(
         id: "kingdomHearts",
         name: "Kingdom Hearts World",
@@ -412,7 +403,45 @@ extension World {
             Stage(id: "hollowBastion", name: "Hollow Bastion")
         ]
     )
-    
+
+    static let iceClimber = World(
+        id: "iceClimber",
+        name: "Ice Climber World",
+        characterIds: ["iceClimbers"],
+        stages: [
+            Stage(id: "summit", name: "Summit"),
+            Stage(id: "icicleMountain", name: "Icicle Mountain")
+        ]
+    )
+
+    static let duckHunt = World(
+        id: "duckHunt",
+        name: "Duck Hunt World",
+        characterIds: ["duckHunt"],
+        stages: [
+            Stage(id: "duckHuntStage", name: "Duck Hunt")
+        ]
+    )
+
+    static let retro = World(
+        id: "retro",
+        name: "Retro Nintendo World",
+        characterIds: ["mrGameAndWatch", "duckHunt"],
+        stages: [
+            Stage(id: "flatZoneX", name: "Flat Zone X"),
+            Stage(id: "duckHuntStage", name: "Duck Hunt")
+        ]
+    )
+
+    static let mii = World(
+        id: "miiWorld",
+        name: "Mii World",
+        characterIds: ["miiBrawler", "miiSwordfighter", "miiGunner", "wiiFitTrainer"],
+        stages: [
+            Stage(id: "wiiFitStudio", name: "Wii Fit Studio")
+        ]
+    )
+
     static let superSmashBros = World(
         id: "superSmashBros",
         name: "Super Smash Bros. World",
@@ -424,7 +453,7 @@ extension World {
             Stage(id: "newDonkCityHall", name: "New Donk City Hall")
         ]
     )
-    
+
     static let miscellaneous = World(
         id: "miscellaneous",
         name: "Miscellaneous Worlds",
@@ -441,42 +470,13 @@ extension World {
             Stage(id: "wuhuIsland", name: "Wuhu Island")
         ]
     )
-    
-    static let iceClimber = World(
-        id: "iceClimber",
-        name: "Ice Climber World",
-        characterIds: ["iceClimbers"],
-        stages: [
-            Stage(id: "summit", name: "Summit"),
-            Stage(id: "icicleMountain", name: "Icicle Mountain")
-        ]
-    )
-    
-    static let duckHunt = World(
-        id: "duckHunt",
-        name: "Duck Hunt World",
-        characterIds: ["duckHunt"],
-        stages: [
-            Stage(id: "duckHuntStage", name: "Duck Hunt")
-        ]
-    )
-    
-    static let retro = World(
-        id: "retro",
-        name: "Retro Nintendo World",
-        characterIds: ["mrGameAndWatch", "duckHunt"],
-        stages: [
-            Stage(id: "flatZoneX", name: "Flat Zone X"),
-            Stage(id: "duckHuntStage", name: "Duck Hunt")
-        ]
-    )
-    
+
     // Add a static property to get all worlds
     static let all: [World] = [
         superMario, donkeyKong, zelda, metroid, yoshi, kirby, starFox, pokemon, fireEmblem,
-        fZero, earthBound, retro, kidIcarus, wario, pikmin, animalCrossing, wiiFit,
+        fZero, earthBound, retro, kidIcarus, wario, pikmin, animalCrossing, mii,
         punchOut, xenoblade, splatoon, castlevania, persona, dragonQuest, banjoKazooie,
         fatalFury, arms, minecraft, finalFantasy, bayonetta, metalGear, sonic, megaMan,
-        pacMan, streetFighter, tekken, kingdomHearts, iceClimber, superSmashBros, miscellaneous
+        pacMan, streetFighter, tekken, kingdomHearts, iceClimber, mii, superSmashBros, miscellaneous
     ]
 }

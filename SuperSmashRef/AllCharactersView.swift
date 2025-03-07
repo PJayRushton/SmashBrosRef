@@ -30,7 +30,11 @@ struct AllCharactersView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     if searchText.isEmpty {
-                        baseCharactersSection()
+                        baseCharactersSection
+
+                        unlockableSection
+
+                        dlcSection
                     } else {
                         searchSection()
                     }
@@ -44,7 +48,7 @@ struct AllCharactersView: View {
         }
     }
 
-    private func baseCharactersSection() -> some View {
+    private var baseCharactersSection: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Base Characters")
                 .font(.headline)
@@ -84,37 +88,43 @@ struct AllCharactersView: View {
         }
     }
 
-    /*
-     private var unlockableSection: some View {
-     Section(header: Text("Unlockable Characters")
-     .font(.headline)
-     .foregroundColor(.secondary)
-     ) {
-     ForEach(Character.unlockable) { character in
-     CharacterRowView(character: character)
-     .contentShape(Rectangle())
-     .onTapGesture {
-     selectedCharacter = character
-     }
-     }
-     }
-     }
+    private var unlockableSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Unlockable Characters")
+                .font(.headline)
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
 
-     private var dlcSection: some View {
-     Section(header: Text("DLC Characters")
-     .font(.headline)
-     .foregroundColor(.secondary)
-     ) {
-     ForEach(Character.dlc) { character in
-     CharacterRowView(character: character)
-     .contentShape(Rectangle())
-     .onTapGesture {
-     selectedCharacter = character
-     }
-     }
-     }
-     }
-     */
+            LazyVGrid(columns: columns, spacing: 2) {
+                ForEach(Character.unlockable) { character in
+                    CharacterRowView(character: character)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedCharacter = character
+                        }
+                }
+            }
+        }
+    }
+
+    private var dlcSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("DLC Characters")
+                .font(.headline)
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
+
+            LazyVGrid(columns: columns, spacing: 2) {
+                ForEach(Character.dlc) { character in
+                    CharacterRowView(character: character)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedCharacter = character
+                        }
+                }
+            }
+        }
+    }
 }
 #Preview {
     AllCharactersView()
