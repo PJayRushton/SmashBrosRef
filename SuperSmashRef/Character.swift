@@ -173,17 +173,17 @@ extension Character {
     static let dlc: [Character] = [
         piranha,        // 70
         joker,          // 71
-//        hero,           // 72
-//        banjoKazooie,   // 73
-//        terry,          // 74
-//        byleth,         // 75
-//        minMin,         // 76
+        hero,           // 72
+        banjoKazooie,   // 73
+        terry,          // 74
+        byleth,         // 75
+        minMin,         // 76
         steve,          // 77
         sephiroth,      // 78
-//        pyra,           // 79
-//        mythra,         // 80
-//        kazuya,         // 81
-//        sora            // 82
+        pyra,           // 79
+        mythra,         // 80
+        kazuya,         // 81
+        sora            // 82
     ]
 
     // Characters in order from 1 to 82
@@ -195,7 +195,15 @@ extension Character {
         mainImage: Image(.marioMain),
         thumbnailImage: Image(.marioThumb),
         movesImage: Image(.marioMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.marioMain1),
+            Image(.marioMain2),
+            Image(.marioMain3),
+            Image(.marioMain4),
+            Image(.marioMain5),
+            Image(.marioMain6),
+            Image(.marioMain7)
+        ],
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 4, speed: 5, longRange: 3, recovery: 5, hasCounter: true),
@@ -225,7 +233,15 @@ extension Character {
         mainImage: Image(.linkMain),
         thumbnailImage: Image(.linkThumb),
         movesImage: Image(.linkMoves),
-        skinImages: [],
+        skinImages: [
+            Image(.linkMain1),
+            Image(.linkMain2),
+            Image(.linkMain3),
+            Image(.linkMain4),
+            Image(.linkMain5),
+            Image(.linkMain6),
+            Image(.linkMain7)
+        ],
         isDLC: false,
         priceCents: nil,
         stats: Stats(power: 4, speed: 3, longRange: 7, recovery: 3, hasCounter: true),
@@ -768,7 +784,7 @@ extension Character {
         name: "Squirtle",
         order: 33,
         world: .pokemon,
-        mainImage: Image(.pokemonTrainerMain),
+        mainImage: Image(.ptSquirtleMain),
         thumbnailImage: Image(.pokemonTrainerThumb),
         movesImage: Image(.ptSquirtleMoves),
         skinImages: [],
@@ -783,7 +799,7 @@ extension Character {
         name: "Ivysaur",
         order: 34,
         world: .pokemon,
-        mainImage: Image(.pokemonTrainerMain),
+        mainImage: Image(.ptIvysaurMain),
         thumbnailImage: Image(.pokemonTrainerThumb),
         movesImage: Image(.ptIvysaur),
         skinImages: [],
@@ -798,7 +814,7 @@ extension Character {
         name: "Charizard",
         order: 35,
         world: .pokemon,
-        mainImage: Image(.pokemonTrainerMain),
+        mainImage: Image(.ptCharizardMain),
         thumbnailImage: Image(.pokemonTrainerThumb),
         movesImage: Image(.ptCharizard),
         skinImages: [],
@@ -1414,11 +1430,11 @@ extension Character {
             Image(.jokerMain7)
         ],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 4, speed: 6, longRange: 4, recovery: 5, hasCounter: true),
         summary: "Joker, the code name of Ren Amamiya, is the charismatic leader of the Phantom Thieves who fights for justice in both the real world and the cognitive realm of the Metaverse. His unique mechanic revolves around his Persona, Arsene, which can be summoned through his Rebellion Gauge to dramatically enhance his abilities. Without Arsene, Joker relies on agile movements, his grappling hook, and his dagger for quick strikes. When Arsene manifests, his moves gain tremendous power and range, reflecting the unleashed potential of his rebellious spirit. His All-Out Attack serves as a devastating finale, capturing the stylish presentation and tactical depth of Persona 5's combat system."
     )
-/*
+
     static let hero = Character(
         id: "hero",
         name: "Hero",
@@ -1429,7 +1445,7 @@ extension Character {
         movesImage: Image(.heroMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 5, speed: 4, longRange: 5, recovery: 4, hasCounter: false),
         summary: "Hero embodies the legendary protagonists from the Dragon Quest series, bringing the classic JRPG's turn-based combat system into real-time battles. His unique Command Selection menu allows access to a variety of MP-consuming spells and abilities, from healing Heal to the devastating Kamikazee. This randomized selection system creates strategic decisions about resource management and risk-reward scenarios. His sword-based normal attacks provide reliable damage, while critical hits can turn the tide of battle. Despite the inherent randomness in his special moves, Hero's combination of solid swordplay and powerful magic makes him a versatile fighter who can adapt to any situation, true to his RPG origins."
     )
@@ -1439,12 +1455,12 @@ extension Character {
         name: "Banjo & Kazooie",
         order: 73,
         world: .banjoKazooie,
-        mainImage: Image(.banjoMain),
-        thumbnailImage: Image(.banjoThumb),
-        movesImage: Image(.banjoMoves),
+        mainImage: Image(.banjoKazooieMain),
+        thumbnailImage: Image(.banjoKazooieThumb),
+        movesImage: Image(.banjaKazooieMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 5, speed: 4, longRange: 5, recovery: 4, hasCounter: false),
         summary: "Banjo & Kazooie are the beloved duo from Rare's classic platforming series, combining Banjo's strength with Kazooie's aerial mobility and projectile attacks. Their movesets faithfully recreate their various abilities from their adventures, including Egg Firing, Wonderwing invincibility, and the Shock Spring Jump. Kazooie can pop out of Banjo's backpack for various attacks, while their Forward Smash references their iconic pack whack. Their recovery options are particularly versatile, using moves like the Breegull Blaster and Wonderwing to approach from multiple angles. Despite being separated from Nintendo for years, their return maintains the charm and humor that made their original games classics."
     )
@@ -1459,7 +1475,7 @@ extension Character {
         movesImage: Image(.terryMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 6, speed: 5, longRange: 3, recovery: 3, hasCounter: false),
         summary: "Terry Bogard, the Legendary Wolf from Fatal Fury, brings SNK's fighting game mechanics to Smash with his unique command input system. His signature moves like Burning Knuckle and Crack Shoot can be performed with either simple or traditional fighting game inputs, rewarding technical skill with increased power. At high damage percentages, he gains access to his devastating Super Special Moves: Power Geyser and Buster Wolf. His fighting style emphasizes ground control and powerful punishes, with his GO meter mechanic adding strategic depth. Terry's combination of accessibility and technical depth, along with his charismatic personality, makes him a fitting representative of SNK's fighting game legacy."
     )
@@ -1474,7 +1490,7 @@ extension Character {
         movesImage: Image(.bylethMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 6, speed: 3, longRange: 6, recovery: 4, hasCounter: true),
         summary: "Byleth, the mysterious professor of the Officers Academy, brings unprecedented weapon variety to their combat style. As the wielder of the Heroes' Relics, they can access the Sword of the Creator, Areadbhar spear, Aymr axe, and Failnaught bow. Each weapon is assigned to different attack directions, creating a unique spacing-based fighting style that rewards positioning and knowledge of each weapon's strengths. Their slower movement is offset by exceptional range and power, while their ability to switch weapons mid-combo creates unique mix-up opportunities. Despite controversy over another Fire Emblem representative, Byleth's unique mechanics set them apart from their sword-wielding predecessors."
     )
@@ -1489,11 +1505,10 @@ extension Character {
         movesImage: Image(.minMinMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 4, speed: 4, longRange: 7, recovery: 4, hasCounter: false),
         summary: "Min Min, the ramen-loving fighter from ARMS, revolutionizes Smash's combat with her unique ability to control both arms independently using the A and B buttons. Her extendable ARMS allow for unprecedented range control, while different arm attachments like the Dragon ARM and Megawatt provide strategic options. Her ground-based fighting style emphasizes spacing and reads, as her arms can be curved to catch opponents' movements. While vulnerable to close-range pressure, Min Min's exceptional range and ability to control neutral from a distance make her a unique zoner who truly brings the ARMS fighting style to life."
     )
-*/
 
     static let steve = Character(
         id: "steve",
@@ -1504,6 +1519,7 @@ extension Character {
         thumbnailImage: Image(.steveThumb),
         movesImage: Image(.steveMoves),
         skinImages: [
+            Image(.steveMain1),
             Image(.steveMain2),
             Image(.steveMain3),
             Image(.steveMain4),
@@ -1512,7 +1528,7 @@ extension Character {
             Image(.steveMain7)
         ],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 5, speed: 4, longRange: 6, recovery: 5, hasCounter: false),
         summary: "Steve (and his alternate form Alex) brings Minecraft's core mechanics into Smash, creating a uniquely resource-management-based fighter. Their ability to mine materials and craft better tools mid-battle creates a dynamic progression system within each match. Building blocks can create platforms and walls for stage control, while different materials affect tool durability and power. Their unusual movement and attack animations faithfully recreate Minecraft's distinctive style, while their minecart and elytra provide unique mobility options. Despite their seemingly simple appearance, Steve/Alex's complex resource management and stage control abilities make them one of the most technically demanding fighters."
     )
@@ -1535,22 +1551,22 @@ extension Character {
             Image(.sephirothMain7),
         ],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 6, speed: 5, longRange: 7, recovery: 4, hasCounter: false),
         summary: "Sephiroth, the legendary One-Winged Angel, brings his imposing presence and devastating sword techniques to the battlefield. His massive Masamune blade gives him unprecedented reach, while his Winged Form activates at high damage percentages, granting additional mobility and power. His moveset incorporates iconic abilities from Final Fantasy VII, including Shadow Flare, Gigaflare, and his signature One-Winged Angel form. Despite being relatively light, his exceptional range and power make him a fearsome opponent who can control space and end stocks early. His dramatic entrance and villainous charisma make him one of the most impactful DLC additions to the roster."
     )
-/*
+
     static let pyra = Character(
         id: "pyra",
         name: "Pyra",
         order: 79,
         world: .xenoblade,
-        mainImage: Image(.pyraMain),
-        thumbnailImage: Image(.pyraThumb),
+        mainImage: Image(.pyraMythraMain),
+        thumbnailImage: Image(.pyraMythraThumb1),
         movesImage: Image(.pyraMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 6, speed: 4, longRange: 4, recovery: 3, hasCounter: false),
         summary: "Pyra is one half of the Aegis duo, representing the power aspect of their shared being. As the Aegis of power, her attacks emphasize raw damage and knockback, with her flame-based abilities creating powerful finishing opportunities. Her slower movement speed is offset by the ability to switch to Mythra for mobility, creating a dynamic tag-team system. Pyra's Prominence Revolt and Flame Nova provide strong vertical kill options, while her Blazing End creates unique edge-guarding opportunities. Her relationship with Rex and her role in Xenoblade Chronicles 2's story is reflected in her powerful but straightforward fighting style."
     )
@@ -1560,12 +1576,12 @@ extension Character {
         name: "Mythra",
         order: 80,
         world: .xenoblade,
-        mainImage: Image(.mythraMain),
-        thumbnailImage: Image(.mythraThumb),
+        mainImage: Image(.pyraMythraMain),
+        thumbnailImage: Image(.pyraMythraThumb1),
         movesImage: Image(.mythraMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 4, speed: 7, longRange: 4, recovery: 3, hasCounter: false),
         summary: "Mythra represents the light aspect of the Aegis, contrasting with Pyra's power through superior speed and combo potential. Her Foresight ability activates when dodging attacks perfectly, creating a slight slowdown effect that rewards precise defensive play. Lightning Buster and Photon Edge allow for rapid multi-hit attacks, while her Chroma Dust creates unique zoning opportunities. The ability to switch between Mythra's speed and Pyra's power creates one of the most versatile characters in the game. Her complex relationship with Pyra and their shared past adds depth to their unique tag-team mechanics."
     )
@@ -1580,7 +1596,7 @@ extension Character {
         movesImage: Image(.kazuyaMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 7, speed: 3, longRange: 2, recovery: 4, hasCounter: true),
         summary: "Kazuya Mishima brings Tekken's complex fighting game mechanics to Smash, featuring over 40 unique attacks based on traditional command inputs. His Fighting Game Mode allows for auto-turn around when using command inputs, staying true to Tekken's gameplay style. His Devil Form transformation enhances his already powerful moves while granting flight ability. Kazuya's combo-heavy gameplay emphasizes the Electric Wind God Fist and other signature Mishima-style moves, rewarding technical execution with devastating damage. Despite his limited range, his raw power and complex moveset make him one of the most technically rewarding characters to master."
     )
@@ -1595,9 +1611,9 @@ extension Character {
         movesImage: Image(.soraMoves),
         skinImages: [],
         isDLC: true,
-        priceCents: 599,
+        priceCents: 699,
         stats: Stats(power: 4, speed: 5, longRange: 4, recovery: 6, hasCounter: false),
         summary: "Sora, the Keyblade wielder from Kingdom Hearts, represents the culmination of the unlikely collaboration between Disney and Square Enix. His fighting style emphasizes aerial combat and magic, with his signature Keyblade providing both melee and magical options. His three-hit combo system recreates Kingdom Hearts' combat, while his magic spells (Fire, Thunder, and Blizzard) can be used in various combinations. Sora's exceptional air mobility and recovery options reflect his experience traversing different worlds, while his counter and aerial combos capture the acrobatic nature of Kingdom Hearts combat. As the final DLC character, his addition represents a fitting conclusion to Smash Ultimate's roster."
     )
- */
+
 }

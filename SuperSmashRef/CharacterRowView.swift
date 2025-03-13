@@ -13,16 +13,16 @@ struct CharacterRowView: View {
 
     var body: some View {
         ZStack {
-            character.mainImage
+            character.thumbnailImage
                 .resizable()
-                .scaledToFill()
+                .aspectRatio(1.7, contentMode: .fit)
                 .clipped()
 
-            LinearGradient(
-                colors: [.clear, .clear, .black.opacity(0.5)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
+//            LinearGradient(
+//                colors: [.clear, .clear, .black.opacity(0.5)],
+//                startPoint: .top,
+//                endPoint: .bottom
+//            )
             VStack {
                 if character.isDLC {
                     HStack {
@@ -37,9 +37,9 @@ struct CharacterRowView: View {
 
                 Spacer()
 
-                Text(character.name.uppercased())
-                    .foregroundStyle(Color.white)
-                    .appFont(style: .title2, weight: .bold)
+//                Text(character.name.uppercased())
+//                    .foregroundStyle(Color.white)
+//                    .appFont(style: .title2, weight: .bold)
             }
         }
 //        .frame(maxWidth: .infinity, maxHeight: .infinity)

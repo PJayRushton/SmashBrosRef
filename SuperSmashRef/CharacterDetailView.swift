@@ -193,6 +193,8 @@ struct CharacterDetailView: View {
             Text("DLC Price")
                 .appFont(style: .title2, weight: .bold)
 
+            Spacer()
+            
             Text("$\(Double(price) / 100.0, specifier: "%.2f")")
                 .appFont(style: .title3)
                 .foregroundStyle(.secondary)
