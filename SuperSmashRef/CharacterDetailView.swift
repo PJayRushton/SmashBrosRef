@@ -12,6 +12,8 @@ struct CharacterDetailView: View {
     @State private var isShowingLevelImage = false
     @State private var isShowingMovesImage = false
     @State private var isShowingSkinGallery = false
+    @EnvironmentObject var favoriteManager: FavoriteManager
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         GeometryReader { geometry in
@@ -40,6 +42,19 @@ struct CharacterDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    favoriteManager.toggleFavorite(character)
+                    if !character.isFavorite {
+                        dismiss()
+                    }
+                } label: {
+                    Image(systemName: character.isFavorite ? "heart.fill" : "heart")
+                        .foregroundColor(character.isFavorite ? .red : .gray)
+                }
+            }
+        }
         .sheet(isPresented: $isShowingMovesImage) {
             FullScreenImageView(image: character.movesImage)
         }
@@ -194,7 +209,7 @@ struct CharacterDetailView: View {
                 .appFont(style: .title2, weight: .bold)
 
             Spacer()
-            
+
             Text("$\(Double(price) / 100.0, specifier: "%.2f")")
                 .appFont(style: .title3)
                 .foregroundStyle(.secondary)
